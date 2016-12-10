@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var session = require('express-session')
 mongoose.connect('mongodb://localhost/tcs');
 var app = express();
-var port = 8080;
+var port = 3000;
 var body_parser = require('body-parser');
 //route our app
 var router = require('./app/routes');

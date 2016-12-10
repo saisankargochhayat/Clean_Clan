@@ -28,7 +28,7 @@ router.get('/logout',function(req,res){
 })
 router.get('/profile',auth,function(req,res,next){
 	if(req.session && req.session.email){
-		res.send("Welcome "+req.session.email);
+		// res.send("Welcome "+req.session.email);
 				User.findOne({email:req.session.email},function(err,user){
 					if(err){
 						console.log(err);
@@ -36,7 +36,7 @@ router.get('/profile',auth,function(req,res,next){
 					}
 					else{
 						console.log(user.name);
-						///res.send(user.name); It doesn't work
+					       res.send("Welcome "+user.name+ " Your email is "+user.email);
 
 						}
 					});
