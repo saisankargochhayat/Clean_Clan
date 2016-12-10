@@ -26,7 +26,7 @@ router.get('/logout',function(req,res){
 	req.session.destroy();
 	res.send("You are now logged out.");
 })
-router.get('/profile',auth,function(req,res){
+router.get('/profile',auth,function(req,res,next){
 	if(req.session && req.session.email){
 		res.send("Welcome "+req.session.email);
 				User.findOne({email:req.session.email},function(err,user){

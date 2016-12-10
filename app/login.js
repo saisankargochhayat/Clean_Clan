@@ -12,10 +12,11 @@ router.get('/',function(req,res){
 	res.sendFile(path.join(__dirname,'../login.html'));
 });
 router.post('/',function(req,res){
-	console.log("got post request");
+		console.log("got post request");
 	//res.send(req.body);
-	if(!req.body.email){
-		res.send("enter some data");
+	if(!req.body.email || !req.body.password){
+		  res.status(502).send('Insufficient field values');
+		//res.send("enter some data/empty fields are present");
 	}else{
 		User.findOne({email:req.body.email},function(err,user){
 			if(err){
@@ -24,12 +25,13 @@ router.post('/',function(req,res){
 			}
 			if(!user){
 				//res.redirect('/signup');
-				res.send("you are no registered");
+				res.send("Not registered");
 			}
 			else{
 				if(user.password == req.body.password){
 					req.session.email = user.email;
-					res.redirect('/profile');
+					res.send("Success")
+					// res.redirect('/profile');
 				}
 				else{res.send("entered wrong password");
 					}
@@ -37,5 +39,5 @@ router.post('/',function(req,res){
 			}
 		});
 	};
-	
+
 });

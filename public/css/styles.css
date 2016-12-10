@@ -24,7 +24,7 @@ body{
 	color: white;
 }
 .container.hehe {
-    height: 540px;
+    height: 450px;
 }
 footer{
 	text-align: center;
@@ -53,8 +53,8 @@ label
           -webkit-border-radius: 15px;
           -o-border-radius: 15px;
           -moz-border-radius: 15px;
-         
-          font-weight: bolder; 
+
+          font-weight: bolder;
           box-shadow: inset -4px -4px rgba(0,0,0,0.5);
           font-size: 14px;
 
@@ -71,7 +71,7 @@ label
         -o-border-radius: 5px;
         -moz-border-radius: 5px;
         padding-left: 5px;
-      } 
+      }
       .aa input[type="password"]{
         width: 200px;
         height: 35px;

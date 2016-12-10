@@ -6,7 +6,7 @@
 -->
 <html>
   <head>
-    <title>Identity by HTML5 UP</title>
+    <title>Clean India App</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
@@ -26,17 +26,13 @@
               <p>Making INDIA a better place</p>
               <hr>
             </header>
-            <form method="post" action="/login">
-              <div class="field">
-                <input type="email" name="email" id="email" placeholder="Email" />
-              </div>
-              <div class="field">
-                <input type="password" name="password" id="passwordconf" placeholder="confirm Password"/>
-              </div>
-              <ul class="actions">
-                <li><input type="submit" value="STAY TUNED" name="login"></li>
-              </ul>
-            </form>
+            <!-- <form method="post" action="/login"> -->
+
+            <input type="email" name="email" id="email" placeholder="Email" style="margin-bottom:10px;" />
+            <input type="password" name="password" id="passwordconf" placeholder="confirm Password" style="margin-bottom:10px;"/>
+            <input type="submit" value="STAY TUNED" id="login" style="margin-bottom:10px;">
+            <p class="msg"></p>
+            <!-- </form> -->
           </section>
 
 
@@ -50,6 +46,7 @@
           document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
         }
       </script>
-
+      <script type="text/javascript" src="/javascript/jquery.js"></script>
+      <script type="text/javascript" src="/javascript/loginf.js"></script>
   </body>
 </html>
