@@ -6,7 +6,7 @@
 -->
 <html>
   <head>
-    <title>Identity by HTML5 UP</title>
+    <title>Clean India App</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
@@ -25,25 +25,17 @@
               <p>Making INDIA a better place</p>
               <hr>
             </header>
-            
+
             <h2>JOIN US!</h2>
-            <form method="post" action="/signup">
-              <div class="field">
-                <input type="text" name="name" id="username" placeholder="Name" />
-              </div>
-              <div class="field"> 
-                <input type="email" name="email" id="email" placeholder="Email"/>
-              </div>
-              <div class="field">
-                <label>I am a?</label>
-                <input type="radio" id="male" name="male" name="gender" value="male" /><label for="male">MALE</label>
-                <input type="radio" id="female" name="gender" value="female" /><label for="female">FEMALE</label>
-              </div>
-              <div class="field">
-                <textarea name="address" value="address" id="address" placeholder="Address" rows="4"></textarea>
-              </div>
-              <div class="field">
-                <div class="select-wrapper">
+
+
+                <input class="field" type="text" name="name" id="username" placeholder="Name" style="margin-bottom:10px;" />
+
+
+                <input class="field" type="email" name="email" id="email" placeholder="Email" style="margin-bottom:10px;"/>
+
+
+                <div class="select-wrapper field" style="margin-bottom:10px;">
                   <select name="city" id="city" name="city">
                     <option value="Bhubaneswar">Bhubaneswar</option>
                     <option value="Mumbai">Mumbai</option>
@@ -51,25 +43,21 @@
                     <option value="delhi">Delhi</option>
                   </select>
                 </div>
-              </div>
-              <div class="field">
-                <input type="password" name="password" id="password" placeholder="Password"/>
-              </div>
-              <div class="field">
-                <input type="password" name="passwordconf" id="passwordconf" placeholder="confirm Password"/>
-              </div>
-              <div class="field">
-                <input type="checkbox" id="human" name="human" /><label for="human">I'm a human</label>
-              </div>
-              <ul class="actions">
-                <li><input type="submit" value="GET STARTED" class="button"></li>
-              </ul>
-            </form>
-            <hr />
+
+
+                <input class="field"type="password" name="password" id="password" placeholder="Password" style="margin-bottom:10px;"/>
+
+
+                <input style="margin-bottom:10px;" class="field"type="checkbox" id="human" name="human" /><label for="human">I'm a human</label>
+
+               <input style="margin-bottom:10px;" class="field" type="submit" value="GET STARTED" class="button" id="signbutton">
+                 <p style="margin-bottom:10px;" class="signmsg"  ></p>
+
+            <hr/>
           </section>
 
         <!-- Footer -->
-          
+
       </div>
 
     <!-- Scripts -->
@@ -80,6 +68,7 @@
           document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
         }
       </script>
-
+    <script type="text/javascript" src="/javascript/jquery.js"></script>
+    <script type="text/javascript" src="/javascript/signupf.js"></script>
   </body>
 </html>

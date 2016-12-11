@@ -13,18 +13,15 @@ router.get('/',function(req,res){
 });
 router.post('/',function(req,res){
 	console.log(req.body);
-	if(!req.body.name){
-		res.send("Please send some data");
-	}
+	if(!req.body.name || !req.body.email ||!req.body.city || !req.body.password ){
+		res.status(502).send('Insufficient field values');
+	}else {
 	console.log("Step 0")
 	var new_user = new User({
 		name : req.body.name,
 		email: req.body.email,
 		password: req.body.password,
-		gender: req.body.gender,
-		contact: req.body.contact,
-		college: req.body.college,
-		year: req.body.year
+		city:req.body.city
 	});
 	User.findOne ({email:new_user.email},function(err,user){
 		if(err){
@@ -46,8 +43,9 @@ router.post('/',function(req,res){
 				});
 			}
 		}
-			  		
+
   	});
+	}
  });
 
 router.get('/list',function(req,res){
@@ -60,5 +58,3 @@ router.get('/list',function(req,res){
 	});
 
 });
-
-

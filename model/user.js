@@ -6,8 +6,7 @@ var userSchema = new Schema({
   name:String,
   email: String,
   gender:String,
-  address:String,
-  city:String,
+    city:String,
   password:String,
 },{ collection:'user'});
 

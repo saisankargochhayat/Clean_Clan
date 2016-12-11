@@ -33,7 +33,7 @@ router.post('/',function(req,res){
 					res.send("Success")
 					// res.redirect('/profile');
 				}
-				else{res.send("entered wrong password");
+				else{res.send("wrong password");
 					}
 
 			}
