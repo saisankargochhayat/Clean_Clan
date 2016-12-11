@@ -31,10 +31,12 @@ $(document).ready(function() {
       }).done(function(data) {
         console.log(data);
         if (data == "Not registered") {
-          $(n).siblings('.msg').append("<strong>Not registered</strong>");
+          $(n).siblings('.msg').append("<strong>Not Registered !</strong> </br></br><strong>You will be redirected to signup page shortly</strong>");
           $(n).siblings('.msg').addClass("alert alert-danger alert-dismissible");
-          s = document.URL;
-          window.location.href = s.substr(0, s.lastIndexOf('/')) + '/signup';
+          setTimeout(function() {
+            s = document.URL;
+            window.location.href = s.substr(0, s.lastIndexOf('/')) + '/signup';
+          }, 2500);
         }
         if (data == "Success") {
           s = document.URL;
