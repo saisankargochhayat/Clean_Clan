@@ -8,15 +8,6 @@ var router = express.Router();
 //export our router
 module.exports = router;
 
-
-var auth = function(req, res, next) {
-  if (req.session && req.session.email)
-    return next();
-  else
-    return res.redirect('/login');
-};
-
-
 //route for our home
 router.get('/',function(req,res){
 	res.sendFile(path.join(__dirname,'../index.html'));
@@ -26,19 +17,19 @@ router.get('/logout',function(req,res){
 	req.session.destroy();
 	res.send("You are now logged out.");
 })
-router.get('/profile',auth,function(req,res,next){
-	if(req.session && req.session.email){
-		// res.send("Welcome "+req.session.email);
-				User.findOne({email:req.session.email},function(err,user){
-					if(err){
-						console.log(err);
-						res.send(err);
-					}
-					else{
-						console.log(user.name);
-					       res.send("Welcome "+user.name+ " Your email is "+user.email);
+// router.get('/profile',auth,function(req,res,next){
+// 	if(req.session && req.session.email){
+// 		// res.send("Welcome "+req.session.email);
+// 				User.findOne({email:req.session.email},function(err,user){
+// 					if(err){
+// 						console.log(err);
+// 						res.send(err);
+// 					}
+// 					else{
+// 						console.log(user.name);
+// 					       res.send("Welcome "+user.name+ " Your email is "+user.email);
 
-						}
-					});
-	}
-})
+// 						}
+// 					});
+// 	}
+// })

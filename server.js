@@ -11,6 +11,8 @@ var body_parser = require('body-parser');
 var router = require('./app/routes');
 var signup = require('./app/signup');
 var login = require('./app/login');
+var profile = require('./app/profile');
+
 
 //set static files(css or js or imgs)
 app.use(express.static(__dirname + "/public"));
@@ -23,11 +25,16 @@ app.use(session({
   saveUninitialized: true
 }))
 
+//setup ejs
+app.set('view engine','ejs');
+app.set('views',__dirname+'/views')
+
 
 //express middlewire which have access to all our routes
 app.use('/',router);
 app.use('/signup',signup);
 app.use('/login',login);
+app.use('/profile',profile);
 
 
 
