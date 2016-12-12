@@ -2,6 +2,8 @@ var express = require('express');
 var path = require('path');
 var User = require('../model/user');
 //create our router object
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
 var router = express.Router();
 
 //export our router
@@ -28,13 +30,26 @@ router.post('/',function(req,res){
 				res.send("Not registered");
 			}
 			else{
-				if(user.password == req.body.password){
-					req.session.email = user.email;
-					res.send("Success")
-					// res.redirect('/profile');
-				}
-				else{res.send("wrong password");
-					}
+				bcrypt.compare(req.body.password, user.password, function(err, result) {
+						// res == true
+						console.log(result);
+						if(err) console.log(err);
+
+						else if(result) {
+							req.session.email = user.email;
+							res.send("Success");
+						}
+						else {
+							res.send("wrong password")
+						}
+					});
+				// 	if(user.password == req.body.password){
+				// 	req.session.email = user.email;
+				// 	res.send("Success")
+				// 	// res.redirect('/profile');
+				// }
+				// else{res.send("wrong password");
+				// 	}
 
 			}
 		});
