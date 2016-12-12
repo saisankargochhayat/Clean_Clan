@@ -4,6 +4,12 @@ var express = require('express');
 var mongoose = require('mongoose');
 var session = require('express-session')
 mongoose.connect('mongodb://localhost/tcs');
+var db = mongoose.connection
+db.on('error', console.error.bind(console, 'connection error:'))
+db.once('open', function () {
+    console.log("connection established to db");
+  });
+
 var app = express();
 var port = 3000;
 var body_parser = require('body-parser');
@@ -40,5 +46,5 @@ app.use('/profile',profile);
 
 //start your server
 app.listen(port,function(){
-	console.log('app started')
+	console.log('App started')
 });
