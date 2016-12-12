@@ -9,7 +9,7 @@ const saltRounds = 10;
 //export our router
 module.exports = router;
 
-router.get('/',function(req,res){
+router.get('/',function(req,res,next){
 	console.log("Got get request");
 	res.sendFile(path.join(__dirname,'../signup.html'));
 });
@@ -37,26 +37,14 @@ router.post('/',function(req,res){
 				res.send("email aready registered")
 			}else{
 				console.log("hello");
-				User.schema.pre('save', function(next) {
-					var user = new_user;
-					console.log(new_user);
-					bcrypt.hash(user.password, 10, function(err, hash) {
-						if(err) return next(err);
-						user.password=hash;
-						console.log(user);
-						console.log("user saved");
-						next();
-					});
+				new_user.save(function(err,user){
+					if(err){
+						res.send(err);
+					}
+					else{
+						res.send("User succesfully saved !");
+					}
 				});
-
-				// new_user.save(function(err,user){
-				// 	if(err){
-				// 		res.send(err);
-				// 	}
-				// 	else{
-				// 		res.send("User succesfully saved !");
-				// 	}
-				// });
 			}
 		}
 
