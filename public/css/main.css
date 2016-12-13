@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300");
+/*@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300");*/
 
 /*
 	Identity by HTML5 UP
@@ -61,7 +61,7 @@
 	@media screen and (max-width: 480px) {
 
 		html, body {
-			min-width: 320px;
+			max-width: 350px;
 		}
 
 	}
@@ -142,11 +142,20 @@
 
 		}
 
+		#wrapper{
+			margin-top: -3%;
+
+		}
+
 		@media screen and (max-width: 480px) {
 
 			body, input, select, textarea {
 				font-size: 10pt;
 				line-height: 1.75;
+			}
+			#wrapper{
+        margin-top: -10%;
+
 			}
 
 		}
