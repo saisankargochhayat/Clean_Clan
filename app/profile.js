@@ -10,28 +10,31 @@ module.exports = router;
 
 
 var auth = function(req, res, next) {
-	if (req.session && req.session.email)
-		return next();
-	else
-		return res.redirect('/login');
+  if (req.session && req.session.email)
+    return next();
+  else
+    return res.redirect('/login');
 };
-router.get('/',auth,function(req,res,next){
-	if(req.session && req.session.email){
-		User.findOne({email:req.session.email},function(err,user){
-			if(err){
-				console.log(err);
-				res.send(err);
-			}
-			else{
-				title = "Clean India"		
-				res.render('./pages/profile',{
-					title:"Clean India",
-					name:user.name,
-					email:user.email,
-					location:user.city
+router.get('/', auth, function(req, res, next) {
+  if (req.session && req.session.email) {
+    User.findOne({
+      email: req.session.email
+    }, function(err, user) {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+      //   title = "Clean India"
+      //   res.render('./pages/profile', {
+      //     title: "Clean India",
+      //     name: user.name,
+      //     email: user.email,
+      //     location: user.city
+			//
+      //   });
+    res.sendFile(path.join(__dirname,'../profile.html'));
+			 }
 
-				});
-			}
-		});
-	}
+    });
+  }
 })

@@ -18,6 +18,7 @@ var router = require('./app/routes');
 var signup = require('./app/signup');
 var login = require('./app/login');
 var profile = require('./app/profile');
+var timeline = require('./app/timeline');
 
 
 //set static files(css or js or imgs)
@@ -41,7 +42,7 @@ app.use('/',router);
 app.use('/signup',signup);
 app.use('/login',login);
 app.use('/profile',profile);
-
+app.use('/timeline',timeline);
 
 
 //start your server
