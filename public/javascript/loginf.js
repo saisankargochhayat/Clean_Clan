@@ -1,7 +1,16 @@
 
+function validateEmail($email) {
+ var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+  console.log(emailReg.test( $email ));
+ return emailReg.test( $email );
+
+}
 
 $(document).ready(function() {
   $('#login').click(function(event) {
+
+if( validateEmail($("#email").val())) {
+
     var n = $(this)
     $.post(document.URL, {
         email: $('#email').val(),
@@ -31,6 +40,13 @@ $(document).ready(function() {
         $(n).siblings('.msg').empty().append("<strong>" + error + "  error,<br> there might be insufficient Data</strong>");
         $(n).siblings('.msg').addClass("alert alert-danger alert-dismissible");
       })
+
+    }else {
+      $('#login').siblings('.msg').empty().append("<strong>Not a valid Email</strong>");
+      $('#login').siblings('.msg').addClass("alert alert-success alert-dismissible");
+    }
+
+
   });
   return false;
 });

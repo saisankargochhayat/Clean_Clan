@@ -1,6 +1,17 @@
+function validateEmail($email) {
+ var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+  console.log(emailReg.test( $email ));
+ return emailReg.test( $email );
+
+}
+
+
 $(document).ready(function() {
   $('#signbutton').click(function(event) {
-    var n = $(this)
+
+if( validateEmail($("#email").val())) {
+
+    var n = $('#signbutton')
     var s = document.URL
     s = s.substr(0, s.lastIndexOf('/')) + '/signup';
     $.post(s, {
@@ -26,9 +37,20 @@ $(document).ready(function() {
       })
       .fail(function(xhr, status, error) {
         console.log(error);
-        $(n).siblings('.signmsg').empty().append("<strong>" + error + "  error,<br> there might be insufficient Data</strong>");
+        $(n).siblings('.signmsg').empty().append("<strong>" + error + "  error<br> there might be insufficient Data</strong>");
         $(n).siblings('.signmsg').addClass("alert alert-danger alert-dismissible");
       });
+
+}else {
+  $('#signbutton').siblings('.signmsg').empty().append("<strong>Not a valid Email</strong>");
+  $('#signbutton').siblings('.signmsg').addClass("alert alert-success alert-dismissible");
+}
+
+
+
+
+
+
     return false;
   });
 });
