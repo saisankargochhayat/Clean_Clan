@@ -15,26 +15,23 @@ var auth = function(req, res, next) {
   else
     return res.redirect('/login');
 };
-router.get('/', auth, function(req, res, next) {
-  if (req.session && req.session.email) {
-    User.findOne({
-      email: req.session.email
-    }, function(err, user) {
-      if (err) {
-        console.log(err);
-        res.send(err);
-      } else {
-      //   title = "Clean India"
-      //   res.render('./pages/profile', {
-      //     title: "Clean India",
-      //     name: user.name,
-      //     email: user.email,
-      //     location: user.city
-			//
-      //   });
-    res.sendFile(path.join(__dirname,'../profile.html'));
-			 }
-
-    });
-  }
+router.get('/',auth,function(req,res,next){
+	if(req.session && req.session.email){
+		User.findOne({email:req.session.email},function(err,user){
+			if(err){
+				console.log(err);
+				res.send(err);
+			}
+			else{
+				res.render('./pages/profile',{
+					title:"Clean India",
+					name:user.name,
+					email:user.email,
+					location:user.city,
+					image:user.image,
+					image_type:user.image_type
+				});
+			}
+		});
+	}
 })

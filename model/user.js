@@ -8,6 +8,8 @@ var userSchema = new Schema({
   email: String,
     city:String,
   password:String,
+  image : Buffer,
+  image_type:String
 },{ collection:'user'});
 
 userSchema.pre('save', function(next) {

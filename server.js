@@ -9,7 +9,7 @@ db.on('error', console.error.bind(console, 'connection error:'))
 db.once('open', function () {
     console.log("connection established to db");
   });
-
+var formidable = require('express-formidable')
 var app = express();
 var port = 3000;
 var body_parser = require('body-parser');
@@ -23,9 +23,9 @@ var timeline = require('./app/timeline');
 
 //set static files(css or js or imgs)
 app.use(express.static(__dirname + "/public"));
-app.use(body_parser.json());
-app.use(body_parser.urlencoded({extended:false}));
-
+// app.use(body_parser.json());
+// app.use(body_parser.urlencoded({extended:false}));
+app.use(formidable());
 app.use(session({
   secret: 'tcshack',
   resave: false,

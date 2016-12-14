@@ -20,6 +20,7 @@
     "express": "^4.14.0",
     "express-ejs-layouts": "^2.2.0",
     "express-session": "^1.14.2",
+    "formidable": "^1.0.17",
     "mongoose": "^4.6.8",
     "nodemon": "^1.11.0",
     "pre": "^0.1.3"
