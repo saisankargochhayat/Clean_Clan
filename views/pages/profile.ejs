@@ -1,12 +1,321 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Clean India</title>
-</head>
-<body>
-	<h1>Name:<%= name %></h1>
-	<h1>Email:<%= email %></h1>
-	<h1>Location:<%= location %></h1>
-	<img src="data:<%= image_type%>;base64,<%= image %>" alt="Profile Pic" />
-</body>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Basis Template for Bootstrap 3</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  	<link href="/css/strap.min.css" rel="stylesheet">
+						<link href="/css/profile.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+	</head>
+	<body>
+<div class="wrapper">
+    <div class="box">
+        <div class="row">
+            <!-- sidebar -->
+            <div class="column col-sm-3" id="sidebar">
+                <a class="logo" href="#"><img style="width:125px;height:125px;" src="data:<%=image_type%>;base64,<%= image %>" class="profileimg"></a>
+            <div class="sidebar-prop">
+                <h1 id="profilename"><%= name %></h1>
+                <h1  id="rep-count">1256<small> Reputations</small></h1>
+            </div>
+            <div class="badges col-md-offset-1">
+                <div class="bronze row">
+                    <h4 class="col-md-4"><i class="fa fa-3x fa-star bronzebad"></i></h4>
+                    <h4 class="col-md-8" style="margin-top: 10%">badge name</h4>
+                </div>
+                <div class="silver row">
+                    <h4 class="col-md-4"><i class="fa fa-3x fa-star silverbad"></i></h4>
+                    <h4 class="col-md-8" style="margin-top: 10%">badge name</h4>
+                </div>
+                <div class="gold row">
+                    <h4 class="col-md-4"><i class="fa fa-3x fa-star goldbad"></i></h4>
+                    <h4 class="col-md-8" style="margin-top: 10%">badge name</h4>
+                </div>
+            </div>
+        </div>
+            <!-- /sidebar -->
+
+            <!-- main -->
+            <div class="column col-sm-9" id="main">
+                <div class="padding">
+                    <div class="full col-sm-9">
+                        <div class="col-sm-12" id="featured">
+                          <div class="page-header text-muted">
+                            User Details
+                          </div>
+                        </div>
+                         <div class="row">
+                              <div class="col-sm-12">
+                                <h4>EMAIL : <span><%= email %></span></h4>
+                                <h4>User Details : <span></span></h4>
+
+                              </div>
+                        </div>
+                        <!-- content -->
+
+                        <div class="col-sm-12" id="featured">
+                          <div class="page-header text-muted">
+                          Recent Works
+                          </div>
+                        </div>
+
+                        <!--/top story-->
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <h3>This is Some Awesome Featured Content</h3>
+                            <div class="col-md-6 col-sm-12">
+                                <a title="Image 1">
+                                    <img class="thumbnail img-responsive" id="image-1" src="/img/01.jpg">
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <h4><span class="label label-danger">challenge</span></h4><h4>
+                                <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page</small></h4>
+                                <h4 class="description">STACK-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
+                                <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
+                                <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
+                                <i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i>
+                            </div>
+                          </div>
+                          <!-- <div class="col-sm-2">
+                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/men/19.jpg" class="img-circle"></a>
+                          </div>  -->
+                        </div>
+
+                         <div class="row divider">
+                           <div class="col-sm-12"><hr></div>
+                        </div>
+
+
+                        <!--/stories-->
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <h3>Dramatically Raise the Value of Any Piece of Content</h3>
+                            <div class="col-md-6 col-sm-12">
+                            <a title="Image 1">
+                                <img class="thumbnail img-responsive" id="image-2" src="/img/02.jpg">
+                            </a>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <h4><span class="label label-success">solution</span></h4><h4>
+                                <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page</small></h4>
+                                <h4 class="description">STACK-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
+                                <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
+                                <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
+                                <i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i>
+                            </div>
+                          </div>
+                          <!-- <div class="col-sm-2">
+                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/men/86.jpg" class="img-circle"></a>
+                          </div>  -->
+                        </div>
+
+                        <div class="row divider">
+                           <div class="col-sm-12"><hr></div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <h3>14 Useful Sites for Designers</h3>
+                            <div class="col-md-6 col-sm-12">
+                                <a title="Image 1">
+                                    <img class="thumbnail img-responsive" id="image-3" src="/img/03.jpg">
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <h4><span class="label label-success">solution</span></h4><h4>
+                                <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page</small></h4>
+                                <h4 class="description">STACK-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
+                                <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
+                                <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
+                                <i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i>
+                                </h4>
+                            </div>
+                          </div>
+                          <!-- <div class="col-sm-2">
+                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/men/19.jpg" class="img-circle"></a>
+                          </div> -->
+                        </div>
+
+                        <div class="row divider">
+                           <div class="col-sm-12"><hr></div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <h3>Bootstrap Builders Get Their Own Playground</h3>
+                            <div class="col-md-6 col-sm-12">
+                                <a title="Image 1">
+                                    <img class="thumbnail img-responsive" id="image-4" src="/img/04.jpg">
+                                </a>
+                            s</div>
+                            <div class="col-md-6 col-sm-12">
+                                <h4><span class="label label-danger">challenge</span></h4><h4>
+                                <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page</small></h4>
+                                <h4 class="description">STACK-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
+                                <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
+                                <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
+                                <i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i>
+                                </h4>
+                            </div>
+                          </div>
+                          <!-- <div class="col-sm-2">
+                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/women/17.jpg" class="img-circle"></a>
+                          </div> -->
+                        </div>
+
+                        <div class="row divider">
+                           <div class="col-sm-12"><hr></div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <h3>How to: Another Fantastical Article</h3>
+                            <div class="col-md-6 col-sm-12">
+                                <a title="Image 1">
+                                    <img class="thumbnail img-responsive" id="image-5" src="/img/05.jpg">
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <h4><span class="label label-danger">challenge</span></h4><h4>
+                                <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page</small></h4>
+                                <h4 class="description">STACK-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
+                                <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
+                                <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
+                                <i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i>
+                                </h4>
+                            </div>
+                          </div>
+                          <!-- <div class="col-sm-2">
+                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/men/86.jpg" class="img-circle"></a>
+                          </div> -->
+                        </div>
+
+                        <div class="row divider">
+                           <div class="col-sm-12"><hr></div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <h3>Another Fantastical Article of Interest</h3>
+                            <div class="col-md-6 col-sm-12">
+                                <a title="Image 1">
+                                    <img class="thumbnail img-responsive" id="image-6" src="/img/06.jpg">
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <h4><span class="label label-success">solution</span></h4><h4>
+                              <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page</small></h4>
+                                <h4 class="description">STACK-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
+                                <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
+                                <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
+                                <i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i>
+                                </h4>
+                            </div>
+                          </div>
+                          <!-- <div class="col-sm-3">
+                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/women/17.jpg" class="img-circle"></a>
+                          </div> -->
+                        </div>
+                        <div class="hidden" id="img-repo">
+
+                        <!-- #image-1 -->
+                        <div class="item" id="image-1">
+                            <img class="thumb img-responsive" title="Image 1a" src="/img/01.jpg">
+                        </div>
+                        <div class="item" id="image-1">
+                            <img class="thumb img-responsive" title="Image 1b" src="/img/02.jpg">
+                        </div>
+
+
+                        <!-- #image-2 -->
+                        <div class="item" id="image-2">
+                            <img class="thumb img-responsive" title="Image 2a" src="/img/03.jpg">
+                        </div>
+                        <div class="item" id="image-2">
+                            <img class="thumb img-responsive" title="Image 2b" src="/img/04.jpg">
+                        </div>
+
+
+                        <!-- #image-3-->
+                        <div class="item" id="image-3">
+                            <img class="thumb img-responsive" title="Image 3a" src="/img/05.jpg">
+                        </div>
+                        <div class="item" id="image-3">
+                            <img class="thumb img-responsive" title="Image 3b" src="/img/01.jpg">
+                        </div>
+
+                        <!--image-4 -->
+                        <div class="item" id="image-4">
+                            <img class="thumb img-responsive" title="Image 4a" src="/img/05.jpg">
+                        </div>
+                        <div class="item" id="image-4">
+                            <img class="thumb img-responsive" title="Image 4b" src="/img/01.jpg">
+                        </div>
+
+                        <!--image-5-->
+                        <div class="item" id="image-5">
+                            <img class="thumb img-responsive" title="Image 5a" src="/img/05.jpg">
+                        </div>
+                        <div class="item" id="image-5">
+                            <img class="thumb img-responsive" title="Image 5b" src="/img/01.jpg">
+                        </div>
+
+                        <!--image-6-->
+                        <div class="item" id="image-6">
+                            <img class="thumb img-responsive" title="Image 6a" src="/img/05.jpg">
+                        </div>
+                        <div class="item" id="image-6">
+                            <img class="thumb img-responsive" title="Image 6b" src="/img/01.jpg">
+                        </div>
+                    </div>
+                    <div class="modal" id="modal-gallery" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button class="close" type="button" data-dismiss="modal">×</button>
+                                    <h3 class="modal-title"></h3>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="modal-carousel" class="carousel">
+
+                                        <div class="carousel-inner">
+                                        </div>
+
+                                        <a class="carousel-control left" href="#modal-carousel" data-slide="prev" style="margin-top: 25%"><i class="fa fa-chevron-left"></i></a>
+                                        <a class="carousel-control right" href="#modal-carousel" data-slide="next" style="margin-top: 25%"><i class="fa fa-chevron-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                        <hr>
+
+
+
+                    </div><!-- /col-9 -->
+                </div><!-- /padding -->
+            </div>
+            <!-- /main -->
+        </div>
+    </div>
+</div>
+	<!-- script references -->
+		<script src="/javascript/vendor/jquery/jquery.min.js"></script>
+    <script src="/javascript/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/javascript/vendor/freelancer.js"></script>
+	</body>
 </html>
