@@ -22,7 +22,7 @@
         <div class="row">
             <!-- sidebar -->
             <div class="column col-sm-3" id="sidebar">
-                <a class="logo" href="#"><img style="width:125px;height:125px;" src="data:<%=image_type%>;base64,<%= image %>" class="profileimg"></a>
+                <a class="logo" href="#"><img style="width:150px;height:150px;" src="data:<%=image_type%>;base64,<%= image %>" class="profileimg"></a>
             <div class="sidebar-prop">
                 <h1 id="profilename"><%= name %></h1>
                 <h1  id="rep-count">1256<small> Reputations</small></h1>
@@ -30,15 +30,15 @@
             <div class="badges col-md-offset-1">
                 <div class="bronze row">
                     <h4 class="col-md-4"><i class="fa fa-3x fa-star bronzebad"></i></h4>
-                    <h4 class="col-md-8" style="margin-top: 10%">badge name</h4>
+                    <h4 class="col-md-8 hidden-sm hidden-xs" style="margin-top: 10%">badge name</h4>
                 </div>
                 <div class="silver row">
                     <h4 class="col-md-4"><i class="fa fa-3x fa-star silverbad"></i></h4>
-                    <h4 class="col-md-8" style="margin-top: 10%">badge name</h4>
+                    <h4 class="col-md-8 hidden-sm hidden-xs" style="margin-top: 10%">badge name</h4>
                 </div>
                 <div class="gold row">
                     <h4 class="col-md-4"><i class="fa fa-3x fa-star goldbad"></i></h4>
-                    <h4 class="col-md-8" style="margin-top: 10%">badge name</h4>
+                    <h4 class="col-md-8 hidden-sm hidden-xs" style="margin-top: 10%">badge name</h4>
                 </div>
             </div>
         </div>
@@ -48,7 +48,8 @@
             <div class="column col-sm-9" id="main">
                 <div class="padding">
                     <div class="full col-sm-9">
-                         <div class="gototimeline" style="float: right;"><a href="/timeline"><b>Timeline</b></a> </div>
+                        <div class="goto" style="float: right;"><a href="/logout"><b>Logout</b></a> </div>
+                         <div class="goto" style="float: right; margin-right: 4%"><a href="/timeline"><b>Timeline</b></a> </div>
                         <div class="col-sm-12" id="featured">
                           <div class="page-header text-muted">
                             User Details

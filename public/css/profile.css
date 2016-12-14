@@ -176,11 +176,12 @@ small.text-muted {
 }
 
 img.profileimg {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
    margin-top: 10%;
-   margin-left: 17%;
-   margin-right: 17%}
+   margin-left: 25%;
+   margin-right: 17%;
+    border-radius: 100%}
 
 
 .sidebar-prop  {
@@ -197,4 +198,7 @@ img.profileimg {
 }
 .silverbad{
   color: #acaaa3;
+}
+.goto{
+  text-decoration: none;
 }
