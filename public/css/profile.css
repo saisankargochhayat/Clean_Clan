@@ -8,6 +8,7 @@ html, body {
    font-family:'Open Sans',arial,sans-serif;
 }
 
+
 a {
   color:#222222;
 }
@@ -57,11 +58,34 @@ a {
 #main {
     background-color:#fefefe;
 }
-#main .img-circle {
-  margin-top:28px;
-  height:110px;
-  width:110px;
+
+@media (min-width: 768px) {
+  #main .img-circle {
+    margin-top:55px;
+    height:80px;
+    width:80px;
+  }
+
 }
+
+@media (max-width: 480px) {
+  #main .img-circle {
+    margin-top: -450px;
+    height:22px;
+    width:22px;
+    
+  }
+  h3 {
+     font-size:smaller;
+}
+
+
+}
+
+
+
+
+
 
 #sidebar{
 overflow-y: hidden;
