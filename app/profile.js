@@ -23,13 +23,13 @@ router.get('/',auth,function(req,res,next){
 				res.send(err);
 			}
 			else{
-				title = "Clean India"		
 				res.render('./pages/profile',{
 					title:"Clean India",
 					name:user.name,
 					email:user.email,
-					location:user.city
-
+					location:user.city,
+					image:user.image,
+					image_type:user.image_type
 				});
 			}
 		});
