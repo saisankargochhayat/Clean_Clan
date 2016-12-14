@@ -24,15 +24,15 @@ router.get('/', auth, function(req, res, next) {
         console.log(err);
         res.send(err);
       } else {
-      //   title = "Clean India"
-      //   res.render('./pages/profile', {
-      //     title: "Clean India",
-      //     name: user.name,
-      //     email: user.email,
-      //     location: user.city
-			//
-      //   });
-    res.sendFile(path.join(__dirname,'../profile.html'));
+        title = "Clean India"
+        res.render('./pages/profile', {
+          title: "Clean India",
+          name: user.name,
+          email: user.email,
+          location: user.city
+			
+        });
+   
 			 }
 
     });

@@ -178,7 +178,7 @@ small.text-muted {
 img.profileimg {
     width: 200px;
     height: 200px;
-   margin-top: 17%;
+   margin-top: 10%;
    margin-left: 17%;
    margin-right: 17%}
 
@@ -187,7 +187,7 @@ img.profileimg {
     text-align: center;
 }
 .badges{
-  margin-top: 5%;
+  margin-top: 10%;
 }
 .goldbad{
   color: gold;
