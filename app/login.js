@@ -38,6 +38,8 @@ router.post('/',function(req,res){
 
 						else if(result) {
 							req.session.email = user.email;
+							req.session.userid = user._id;
+							console.log(req.session.userid + " is the id");
 							res.send("Success");
 						}
 						else {

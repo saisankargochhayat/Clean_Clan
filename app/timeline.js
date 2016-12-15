@@ -2,6 +2,7 @@
 var express = require('express');
 var path = require('path');
 var User = require('../model/user');
+var Post = require('../model/post');
 //create our router object
 var router = express.Router();
 
@@ -17,5 +18,5 @@ var auth = function(req, res, next) {
 };
 
 router.get('/',auth,function(req, res,next) {
-   res.render('./pages/timeline');
-  });
+  res.render('./pages/timeline');
+});
