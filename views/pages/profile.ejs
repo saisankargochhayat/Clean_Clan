@@ -9,7 +9,7 @@
 
   	<link href="/css/strap.min.css" rel="stylesheet">
 						<link href="/css/profile.css" rel="stylesheet">
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <!-- <link href="/css/font-awesome.css" rel="stylesheet"> -->
 
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -24,12 +24,21 @@
             <div class="column col-sm-3" id="sidebar">
                 <a class="logo" href="#"><img style="width:150px;height:150px;" src="data:<%=image_type%>;base64,<%= image %>" class="profileimg"></a>
             <div class="sidebar-prop">
-                <h1 id="profilename"><%= name %></h1>
-                <h1  id="rep-count">1256<small> Reputations</small></h1>
+                <strong><h1 id="profilename" style="text-transform: capitalize"><%= name %></h1></strong>
+                <div class="alert alert-warning" role="alert" id="reputation"><h4 id="repuword"><strong>1256</strong>&nbsp<small> REPUTATION</small></h4></div>
             </div>
-            <div class="badges col-md-offset-1">
-                <div class="bronze row">
-                    <h4 class="col-md-4"><i class="fa fa-3x fa-star bronzebad"></i></h4>
+            <div class="badges col-sm-3">
+							    <div class="badgeitems" ><div class="color-box " style="background-color: #FF850A;"></div>
+										 <div style="font-size:18px">Badge_name1</div>
+									 </div></br></br>
+									 <div class="badgeitems" ><div class="color-box " style="background-color: #52DE3F;"></div>
+										 <div style="font-size:18px">Badge_name2</div>
+									 </div></br></br>
+									 <div class="badgeitems" ><div class="color-box " style="background-color:#42DAD6;"></div>
+										 <div style="font-size:18px">Badge_name3</div>
+									 </div>
+										<!-- <div class="bronze row">
+                    <h4 class="col-md-4"></i></h4>
                     <h4 class="col-md-8 hidden-sm hidden-xs" style="margin-top: 10%">badge name</h4>
                 </div>
                 <div class="silver row">
@@ -39,7 +48,7 @@
                 <div class="gold row">
                     <h4 class="col-md-4"><i class="fa fa-3x fa-star goldbad"></i></h4>
                     <h4 class="col-md-8 hidden-sm hidden-xs" style="margin-top: 10%">badge name</h4>
-                </div>
+                </div> -->
             </div>
         </div>
             <!-- /sidebar -->

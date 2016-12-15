@@ -6,12 +6,71 @@
 html, body {
    height: 100%;
    font-family:'Open Sans',arial,sans-serif;
+       /*box-sizing: border-box;*/
 }
+
+
+
+@media (min-width:786px) {
+  .badges{
+
+    display: inline-block;
+  }
+  .badgeitems{margin-left: 140%;}
+  .color-box {
+    border-radius: 100%;
+      width: 15px;
+      height: 15px;
+      display: block;
+      background-color: #ccc;
+      position: static;;
+      left: 5px;
+      top: 5px;
+      margin-left: 52px;
+  }
+}
+@media (max-width: 480px) {
+  .color-box {
+    border-radius: 100%;
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      background-color: #ccc;
+      position: relative;
+      left: 5px;
+      top: 5px;
+}
+}
+
+
+
+
+ul {
+  list-style-type: none;
+}
+
 
 
 a {
   color:#222222;
 }
+
+#reputation{
+  margin-left:40px;
+  margin-right:40px;
+}
+#repuword{
+
+  margin-top: -5px;
+  margin-bottom: -5px;
+}
+
+@media (min-width: 480px) {
+  #reputation{
+    font-size: 50px;
+}
+}
+
 
 .wrapper, .row {
    height: 100%;
@@ -73,7 +132,7 @@ a {
     margin-top: -450px;
     height:22px;
     width:22px;
-    
+
   }
   h3 {
      font-size:smaller;
@@ -123,7 +182,7 @@ overflow-y: hidden;
     text-align:center;
     margin:0 auto;
     margin-top:30px;
-    font-size:26px;
+    /*font-size:26px;*/
   }
   #sidebar a.logo {
     font-size:50px;
