@@ -8,6 +8,14 @@ var router = express.Router();
 //export our router
 module.exports = router;
 
-router.get('/', function(req, res) {
+
+var auth = function(req, res, next) {
+  if (req.session && req.session.email)
+    return next();
+  else
+    return res.redirect('/login');
+};
+
+router.get('/',auth,function(req, res,next) {
    res.render('./pages/timeline');
   });

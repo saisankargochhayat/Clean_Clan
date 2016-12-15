@@ -8,13 +8,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   	<link href="/css/strap.min.css" rel="stylesheet">
-						<link href="/css/profile.css" rel="stylesheet">
-    <!-- <link href="/css/font-awesome.css" rel="stylesheet"> -->
+	<link href="/css/profile.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+        
 
-		<!--[if lt IE 9]>
-			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-
+		
 	</head>
 	<body>
 <div class="wrapper">
@@ -25,7 +23,7 @@
                 <a class="logo" href="#"><img style="width:150px;height:150px;" src="data:<%=image_type%>;base64,<%= image %>" class="profileimg"></a>
             <div class="sidebar-prop">
                 <strong><h1 id="profilename" style="text-transform: capitalize"><%= name %></h1></strong>
-                <div class="alert alert-warning" role="alert" id="reputation"><h4 id="repuword"><strong>1256</strong>&nbsp<small> REPUTATION</small></h4></div>
+                <div class="alert alert-warning" role="alert" id="reputation"><h4 id="repuword"><strong><%= like_count*5 %></strong>&nbsp<small> REPUTATION</small></h4></div>
             </div>
             <div class="badges col-sm-3">
 							    <div class="badgeitems" ><div class="color-box " style="background-color: #FF850A;"></div>
@@ -37,34 +35,24 @@
 									 <div class="badgeitems" ><div class="color-box " style="background-color:#42DAD6;"></div>
 										 <div style="font-size:18px">Badge_name3</div>
 									 </div>
-										<!-- <div class="bronze row">
-                    <h4 class="col-md-4"></i></h4>
-                    <h4 class="col-md-8 hidden-sm hidden-xs" style="margin-top: 10%">badge name</h4>
-                </div>
-                <div class="silver row">
-                    <h4 class="col-md-4"><i class="fa fa-3x fa-star silverbad"></i></h4>
-                    <h4 class="col-md-8 hidden-sm hidden-xs" style="margin-top: 10%">badge name</h4>
-                </div>
-                <div class="gold row">
-                    <h4 class="col-md-4"><i class="fa fa-3x fa-star goldbad"></i></h4>
-                    <h4 class="col-md-8 hidden-sm hidden-xs" style="margin-top: 10%">badge name</h4>
-                </div> -->
+                                </div>
             </div>
-        </div>
             <!-- /sidebar -->
 
             <!-- main -->
-            <div class="column col-sm-9" id="main">
+            <div class="column col-sm-9" id="main"> 
+            <div>
+                <div class="goto" style="float: right; margin-right: 4%;margin-top: 1%"><a href="/logout" class="btn btn-default"><b>Logout</b></a> </div>
+                <div class="goto" style="float: right; margin-right: 4%;margin-top: 1%"><a href="/timeline" class="btn btn-default"><b>Timeline</b></a> </div>
+            </div>
                 <div class="padding">
                     <div class="full col-sm-9">
-                        <div class="goto" style="float: right;"><a href="/logout"><b>Logout</b></a> </div>
-                         <div class="goto" style="float: right; margin-right: 4%"><a href="/timeline"><b>Timeline</b></a> </div>
                         <div class="col-sm-12" id="featured">
                           <div class="page-header text-muted">
                             User Details
                           </div>
                         </div>
-                         <div class="row">
+                         <div class="row" style="margin-left:2%">
                               <div class="col-sm-12">
                                 <h4>EMAIL : <span><%= email %></span></h4>
                                 <h4>User Details : <span></span></h4>
@@ -91,10 +79,10 @@
                             <div class="col-md-6 col-sm-12">
                                 <h4><span class="label label-danger">challenge</span></h4><h4>
                                 <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page</small></h4>
-                                <h4 class="description">STACK-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
+                                <h4 class="description">STAKE-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
                                 <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
                                 <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
-                                <i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i>
+                                <a href="#"><a href="#"><i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i></a></i></a>
                             </div>
                           </div>
                           <!-- <div class="col-sm-2">
@@ -119,10 +107,10 @@
                             <div class="col-md-6 col-sm-12">
                                 <h4><span class="label label-success">solution</span></h4><h4>
                                 <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page</small></h4>
-                                <h4 class="description">STACK-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
+                                <h4 class="description">STAKE-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
                                 <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
                                 <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
-                                <i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i>
+                                <a href="#"><i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i></a></i>
                             </div>
                           </div>
                           <!-- <div class="col-sm-2">
@@ -145,10 +133,10 @@
                             <div class="col-md-6 col-sm-12">
                                 <h4><span class="label label-success">solution</span></h4><h4>
                                 <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page</small></h4>
-                                <h4 class="description">STACK-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
+                                <h4 class="description">STAKE-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
                                 <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
                                 <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
-                                <i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i>
+                                <a href="#"><i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i></a></i>
                                 </h4>
                             </div>
                           </div>
@@ -168,14 +156,14 @@
                                 <a title="Image 1">
                                     <img class="thumbnail img-responsive" id="image-4" src="/img/04.jpg">
                                 </a>
-                            s</div>
+                            </div>
                             <div class="col-md-6 col-sm-12">
                                 <h4><span class="label label-danger">challenge</span></h4><h4>
                                 <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page</small></h4>
-                                <h4 class="description">STACK-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
+                                <h4 class="description">STAKE-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
                                 <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
                                 <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
-                                <i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i>
+                                <a href="#"><i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i></a></i>
                                 </h4>
                             </div>
                           </div>
@@ -199,10 +187,10 @@
                             <div class="col-md-6 col-sm-12">
                                 <h4><span class="label label-danger">challenge</span></h4><h4>
                                 <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page</small></h4>
-                                <h4 class="description">STACK-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
+                                <h4 class="description">STAKE-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
                                 <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
                                 <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
-                                <i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i>
+                                <a href="#"><i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i></a></i>
                                 </h4>
                             </div>
                           </div>
@@ -226,10 +214,10 @@
                             <div class="col-md-6 col-sm-12">
                                 <h4><span class="label label-success">solution</span></h4><h4>
                               <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page</small></h4>
-                                <h4 class="description">STACK-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
+                                <h4 class="description">STAKE-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
                                 <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
                                 <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
-                                <i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i>
+                                <a href="#"><i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i></a></i>
                                 </h4>
                             </div>
                           </div>
@@ -302,8 +290,8 @@
                                         <div class="carousel-inner">
                                         </div>
 
-                                        <a class="carousel-control left" href="#modal-carousel" data-slide="prev" style="margin-top: 25%"><i class="fa fa-chevron-left"></i></a>
-                                        <a class="carousel-control right" href="#modal-carousel" data-slide="next" style="margin-top: 25%"><i class="fa fa-chevron-right"></i></a>
+                                         <a class="carousel-control left" style="margin-top: 25%" href="#modal-carousel" data-slide="prev"><i class="fa  fa-2x fa-chevron-left"></i></a>
+                                         <a class="carousel-control right" style="margin-top: 25.5%" href="#modal-carousel" data-slide="next"><i class="fa fa-2x fa-chevron-right"></i></a>
                                     </div>
                                 </div>
                                 <div class="modal-footer">

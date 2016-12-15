@@ -9,7 +9,8 @@ var userSchema = new Schema({
     city:String,
   password:String,
   image : Buffer,
-  image_type:String
+  image_type:String,
+  like_count:Number
 },{ collection:'user'});
 
 userSchema.pre('save', function(next) {

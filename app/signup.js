@@ -28,7 +28,8 @@ router.post('/',function(req,res){
 			password: req.body.password,
 			city:req.body.city,
 			image:imageBuffer,
-			image_type:req.files.image.type
+			image_type:req.files.image.type,
+			like_count:req.body.like_count
 		});
 		User.findOne ({email:new_user.email},function(err,user){
 			if(err){

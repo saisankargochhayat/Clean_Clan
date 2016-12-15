@@ -29,7 +29,8 @@ router.get('/',auth,function(req,res,next){
 					email:user.email,
 					location:user.city,
 					image:user.image,
-					image_type:user.image_type
+					image_type:user.image_type,
+					like_count:10
 				});
 			}
 		});
