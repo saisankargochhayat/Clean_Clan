@@ -7,12 +7,19 @@ var fs = require('fs');
 var mongoose = require('mongoose');
 //create our router object
 var router = express.Router();
-router.get('/',function(req,res,next){
+var auth = function(req, res, next) {
+  if (req.session && req.session.email)
+    return next();
+  else
+    return res.redirect('/login');
+};
+router.get('/',auth,function(req,res,next){
   res.render('./pages/newpost');
 })
-router.post('/create',function(req,res,next){
+router.post('/create',auth,function(req,res,next){
   req.body = req.fields;
-  if(!req.body.description || !req.body.location || !req.files.before_image || !req.files.after_image){
+  if(!req.body.description || !req.body.location || !req.files.before_image ||
+    !req.files.after_image || !req.body.stake_holders || !req.body.heading){
     res.status(502).send("Insufficient Field Values")
   }else{
     var b_image_path = req.files.before_image.path;
@@ -27,6 +34,8 @@ router.post('/create',function(req,res,next){
     var new_post = new Post({
       description : req.body.description,
       location : req.body.location,
+      stake_holders : req.body.stake_holders,
+      heading : req.body.heading,
       author :req.session.userid.toString(),
       image_before:b_imageBuffer,
       image_before_type:b_image_type,

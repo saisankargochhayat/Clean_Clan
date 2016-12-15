@@ -10,9 +10,9 @@
   	<link href="/css/strap.min.css" rel="stylesheet">
 	<link href="/css/profile.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
-        
 
-		
+
+
 	</head>
 	<body>
 <div class="wrapper">
@@ -40,7 +40,7 @@
             <!-- /sidebar -->
 
             <!-- main -->
-            <div class="column col-sm-9" id="main"> 
+            <div class="column col-sm-9" id="main">
             <div>
                 <div class="goto" style="float: right; margin-right: 4%;margin-top: 1%"><a href="/logout" class="btn btn-default"><b>Logout</b></a> </div>
                 <div class="goto" style="float: right; margin-right: 4%;margin-top: 1%"><a href="/timeline" class="btn btn-default"><b>Timeline</b></a> </div>
@@ -67,49 +67,24 @@
                           </div>
                         </div>
 
-                        <!--/top story-->
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <h3>This is Some Awesome Featured Content</h3>
-                            <div class="col-md-6 col-sm-12">
-                                <a title="Image 1">
-                                    <img class="thumbnail img-responsive" id="image-1" src="/img/01.jpg">
-                                </a>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <h4><span class="label label-danger">challenge</span></h4><h4>
-                                <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page</small></h4>
-                                <h4 class="description">STAKE-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
-                                <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
-                                <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
-                                <a href="#"><a href="#"><i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i></a></i></a>
-                            </div>
-                          </div>
-                          <!-- <div class="col-sm-2">
-                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/men/19.jpg" class="img-circle"></a>
-                          </div>  -->
-                        </div>
-
-                         <div class="row divider">
-                           <div class="col-sm-12"><hr></div>
-                        </div>
 
 
                         <!--/stories-->
+					<% for(i=0;i<posts.length;i++){ post = posts[i] %>
                         <div class="row">
                           <div class="col-sm-12">
-                            <h3>Dramatically Raise the Value of Any Piece of Content</h3>
+                            <h3><%= post.heading %></h3>
                             <div class="col-md-6 col-sm-12">
                             <a title="Image 1">
-                                <img class="thumbnail img-responsive" id="image-2" src="/img/02.jpg">
+                                <img class="thumbnail img-responsive" id="image-2" src="data:<%=post.image_before_type %>;base64,<%= post.image_before %>">
                             </a>
                             </div>
                             <div class="col-md-6 col-sm-12">
                                 <h4><span class="label label-success">solution</span></h4><h4>
-                                <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page</small></h4>
-                                <h4 class="description">STAKE-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
-                                <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
-                                <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
+                                <h4 class="description">DESCRIPTION : <small><%= post.description %></small></h4>
+                                <h4 class="description">STAKE-HOLDERS : <small><%= post.stake_holders %></small></h4>
+                                <h5>Location : <small><%= post.description %></small></h5>
+                                <h5>Likes : <small id="like-count"><%= post.like_count %></small><small class="text-muted" style="float:right;"><%= post.date %></small></h5>
                                 <a href="#"><i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i></a></i>
                             </div>
                           </div>
@@ -121,110 +96,7 @@
                         <div class="row divider">
                            <div class="col-sm-12"><hr></div>
                         </div>
-
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <h3>14 Useful Sites for Designers</h3>
-                            <div class="col-md-6 col-sm-12">
-                                <a title="Image 1">
-                                    <img class="thumbnail img-responsive" id="image-3" src="/img/03.jpg">
-                                </a>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <h4><span class="label label-success">solution</span></h4><h4>
-                                <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page</small></h4>
-                                <h4 class="description">STAKE-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
-                                <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
-                                <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
-                                <a href="#"><i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i></a></i>
-                                </h4>
-                            </div>
-                          </div>
-                          <!-- <div class="col-sm-2">
-                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/men/19.jpg" class="img-circle"></a>
-                          </div> -->
-                        </div>
-
-                        <div class="row divider">
-                           <div class="col-sm-12"><hr></div>
-                        </div>
-
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <h3>Bootstrap Builders Get Their Own Playground</h3>
-                            <div class="col-md-6 col-sm-12">
-                                <a title="Image 1">
-                                    <img class="thumbnail img-responsive" id="image-4" src="/img/04.jpg">
-                                </a>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <h4><span class="label label-danger">challenge</span></h4><h4>
-                                <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page</small></h4>
-                                <h4 class="description">STAKE-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
-                                <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
-                                <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
-                                <a href="#"><i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i></a></i>
-                                </h4>
-                            </div>
-                          </div>
-                          <!-- <div class="col-sm-2">
-                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/women/17.jpg" class="img-circle"></a>
-                          </div> -->
-                        </div>
-
-                        <div class="row divider">
-                           <div class="col-sm-12"><hr></div>
-                        </div>
-
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <h3>How to: Another Fantastical Article</h3>
-                            <div class="col-md-6 col-sm-12">
-                                <a title="Image 1">
-                                    <img class="thumbnail img-responsive" id="image-5" src="/img/05.jpg">
-                                </a>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <h4><span class="label label-danger">challenge</span></h4><h4>
-                                <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page</small></h4>
-                                <h4 class="description">STAKE-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
-                                <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
-                                <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
-                                <a href="#"><i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i></a></i>
-                                </h4>
-                            </div>
-                          </div>
-                          <!-- <div class="col-sm-2">
-                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/men/86.jpg" class="img-circle"></a>
-                          </div> -->
-                        </div>
-
-                        <div class="row divider">
-                           <div class="col-sm-12"><hr></div>
-                        </div>
-
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <h3>Another Fantastical Article of Interest</h3>
-                            <div class="col-md-6 col-sm-12">
-                                <a title="Image 1">
-                                    <img class="thumbnail img-responsive" id="image-6" src="/img/06.jpg">
-                                </a>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <h4><span class="label label-success">solution</span></h4><h4>
-                              <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page</small></h4>
-                                <h4 class="description">STAKE-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
-                                <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
-                                <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
-                                <a href="#"><i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i></a></i>
-                                </h4>
-                            </div>
-                          </div>
-                          <!-- <div class="col-sm-3">
-                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/women/17.jpg" class="img-circle"></a>
-                          </div> -->
-                        </div>
+					<% } %>
                         <div class="hidden" id="img-repo">
 
                         <!-- #image-1 -->
