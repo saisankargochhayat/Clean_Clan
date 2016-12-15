@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Clean India App</title>
+  <title>Clean App India</title>
 
   <!-- Bootstrap Core CSS -->
   <link href="/javascript/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,10 +26,10 @@
   <header>
     <div class="header-content">
       <div class="header-content-inner">
-        <h1 id="homeHeading">Clean India App</h1>
+        <h1 id="homeHeading" style="text-transform:captalized;">You Are Now Logged Out</h1>
         <hr>
-        <p>An initiative to make Clean India program more of a game and lots of fun. Some more description</p>
-        <a href="/signup" class="btn btn-primary btn-xl " id="b1">SignUp</a><a href="/login" id="b2"class="btn btn-primary btn-xl" >Login</a>
+        <p>Hope to see you soon again!</p>
+        <p id="logoutmsg"></p>
       </div>
     </div>
   </header>
@@ -40,7 +40,18 @@
 
   <!-- Bootstrap Core JavaScript -->
   <script src="/javascript/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script>
+$(document).ready(function() {
+  $('#logoutmsg').empty().append("<strong>You will be redirected to home page shortly</strong>");
+  $('#logoutmsg').addClass("alert alert-warning alert-dismissible");
 
+  setTimeout(function() {
+    s = document.URL;
+    window.location.href = s.substr(0, s.lastIndexOf('/'));
+  }, 2500);
+
+});
+  </script>
 
 </body>
 

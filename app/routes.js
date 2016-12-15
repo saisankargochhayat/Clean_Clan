@@ -15,7 +15,7 @@ router.get('/',function(req,res){
 
 router.get('/logout',function(req,res){
 	req.session.destroy();
-	res.send("You are now logged out.");
+	res.sendFile(path.join(__dirname,'../logout.html'));
 })
 // router.get('/profile',auth,function(req,res,next){
 // 	if(req.session && req.session.email){
