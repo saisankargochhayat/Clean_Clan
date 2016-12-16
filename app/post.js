@@ -3,53 +3,71 @@ var express = require('express');
 var path = require('path');
 var User = require('../model/user');
 var Post = require('../model/post');
-var fs = require('fs');
+var multer = require('multer');
+
 var mongoose = require('mongoose');
 //create our router object
 var router = express.Router();
+//multer object
+var storage = multer.diskStorage({
+  destination: function(request, file, callback) {
+    callback(null, 'public/uploads/');
+  },
+  filename: function(request, file, callback) {
+    callback(null, file.originalname + Date.now())
+  }
+});
+
+var upload = multer({
+  storage: storage
+});
+
+
+
 var auth = function(req, res, next) {
   if (req.session && req.session.email)
     return next();
   else
     return res.redirect('/login');
 };
-router.get('/',auth,function(req,res,next){
+router.get('/', auth, function(req, res, next) {
   res.render('./pages/newpost');
 })
-router.post('/create',auth,function(req,res,next){
-  req.body = req.fields;
-  if(!req.body.description || !req.body.location || !req.files.before_image ||
-    !req.files.after_image || !req.body.stake_holders || !req.body.heading){
-    res.status(502).send("Insufficient Field Values")
-  }else{
-    var b_image_path = req.files.before_image.path;
-    var a_image_path = req.files.after_image.path;
-    var b_image_type = req.files.before_image.type;
-    var a_image_type = req.files.after_image.type;
-    var b_bitmap = fs.readFileSync(b_image_path);
-    var a_bitmap = fs.readFileSync(a_image_path);
-    var b_imageBuffer = new Buffer(b_bitmap).toString('base64');
-    var a_imageBuffer = new Buffer(a_bitmap).toString('base64');
-    console.log(req.session.userid.toString());
-    var new_post = new Post({
-      description : req.body.description,
-      location : req.body.location,
-      stake_holders : req.body.stake_holders,
-      heading : req.body.heading,
-      author :req.session.userid.toString(),
-      image_before:b_imageBuffer,
-      image_before_type:b_image_type,
-      image_after:a_imageBuffer,
-      image_after_type:a_image_type
-    });
-    new_post.save(function(err,post){
-      if(err){
-        console.log(err);
-        res.send(err)
-      }else{
-        res.send("Post saved succesfully");
-      }
-    });
+
+router.post('/create', auth, upload.array('images', 12), function(req, res, next) {
+  console.log(req.body);
+  console.log(req.files);
+  console.log(req.files.length);
+  console.log(req.files[0].path);
+  req.files[0].path = req.files[0].path.substr(req.files[0].path.indexOf('/') + 1, req.files[0].path.length - 1);
+  req.files[1].path = req.files[1].path.substr(req.files[1].path.indexOf('/') + 1, req.files[1].path.length - 1);
+  if (req.files.length > 2) {
+    res.send("Exceeds file limit");
+  } else {
+    if (!req.body.description || !req.body.location || !req.files[0].path ||
+      !req.files[1].path || !req.body.stake_holders || !req.body.heading) {
+      res.status(502).send("Insufficient Field Values")
+    } else {
+
+      console.log(req.session.userid.toString());
+      var new_post = new Post({
+        description: req.body.description,
+        location: req.body.location,
+        stake_holders: req.body.stake_holders,
+        heading: req.body.heading,
+        author: req.session.userid.toString(),
+        image_before: req.files[0].path,
+        image_after: req.files[1].path
+      });
+      new_post.save(function(err, post) {
+        if (err) {
+          console.log(err);
+          res.send(err)
+        } else {
+          res.send("Post saved succesfully");
+        }
+      });
+    }
   }
 });
 

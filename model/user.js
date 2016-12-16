@@ -8,8 +8,7 @@ var userSchema = new Schema({
   email: String,
     city:String,
   password:String,
-  image : Buffer,
-  image_type:String,
+  image : String,
   like_count:Number
 },{ collection:'user'});
 

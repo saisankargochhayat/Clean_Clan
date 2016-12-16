@@ -21,7 +21,12 @@ $(document).ready(function() {
         contentType:false,
         processData:false,
         success:function(data) {
-          if (data == "email aready registered") {
+          if(data=="Exceeds file limit")
+          {
+            $(n).siblings('.signmsg').empty().append("<strong>Exceeds file limit,You can upload only one profile pic</strong>");
+            $(n).siblings('.signmsg').addClass("alert alert-danger alert-dismissible");
+          }
+          if (data == "email already registered") {
             $(n).siblings('.signmsg').empty().append("<strong>Email Already Registered</strong>");
             $(n).siblings('.signmsg').addClass("alert alert-danger alert-dismissible");
           }
