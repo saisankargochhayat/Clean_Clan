@@ -3,16 +3,21 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var session = require('express-session')
+var multer = require('multer');
+var serveIndex = require('serve-index')
+var body_parser = require('body-parser');
+
+
 mongoose.connect('mongodb://localhost/tcs');
 var db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
 db.once('open', function () {
     console.log("connection established to db");
   });
-var formidable = require('express-formidable')
+// var formidable = require('express-formidable')
 var app = express();
 var port = 3000;
-var body_parser = require('body-parser');
+
 //route our app
 var router = require('./app/routes');
 var signup = require('./app/signup');
@@ -23,9 +28,13 @@ var post = require('./app/post')
 
 //set static files(css or js or imgs)
 app.use(express.static(__dirname + "/public"));
-// app.use(body_parser.json());
-// app.use(body_parser.urlencoded({extended:false}));
-app.use(formidable());
+app.use('/uploads', serveIndex('public/uploads'));
+
+app.use(body_parser.json({limit:'10mb'}));
+app.use(body_parser.urlencoded({extended:true}));
+// app.use(formidable());
+
+
 app.use(session({
   secret: 'tcshack',
   resave: false,
