@@ -24,7 +24,6 @@ router.get('/',auth,function(req,res,next){
 				res.send(err);
 			}
 			else{
-        console.log(user._id.toString());
         Post.find({author:user._id.toString()},function(err,posts){
           var render_data = {
             title:"Clean India",

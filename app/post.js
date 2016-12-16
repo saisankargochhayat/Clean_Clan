@@ -35,10 +35,6 @@ router.get('/', auth, function(req, res, next) {
 })
 
 router.post('/create', auth, upload.array('images', 12), function(req, res, next) {
-  console.log(req.body);
-  console.log(req.files);
-  console.log(req.files.length);
-  console.log(req.files[0].path);
   req.files[0].path = req.files[0].path.substr(req.files[0].path.indexOf('/') + 1, req.files[0].path.length - 1);
   req.files[1].path = req.files[1].path.substr(req.files[1].path.indexOf('/') + 1, req.files[1].path.length - 1);
   if (req.files.length > 2) {
@@ -48,8 +44,6 @@ router.post('/create', auth, upload.array('images', 12), function(req, res, next
       !req.files[1].path || !req.body.stake_holders || !req.body.heading) {
       res.status(502).send("Insufficient Field Values")
     } else {
-
-      console.log(req.session.userid.toString());
       var new_post = new Post({
         description: req.body.description,
         location: req.body.location,

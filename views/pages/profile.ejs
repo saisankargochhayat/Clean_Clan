@@ -1,192 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<title>Clean App India</title>
-		<meta name="generator" content="Bootply" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  	<link href="/css/strap.min.css" rel="stylesheet">
-	<link href="/css/profile.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Clean App India</title>
+  <meta name="generator" content="Bootply" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link href="/css/strap.min.css" rel="stylesheet">
+  <link href="/css/profile.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
 
 
 
-	</head>
-	<body>
-<div class="wrapper">
+</head>
+
+<body>
+  <div class="wrapper">
     <div class="box">
-        <div class="row">
-            <!-- sidebar -->
-            <div class="column col-sm-3" id="sidebar">
-                <a class="logo" href="#"><img style="width:150px;height:150px;" src="<%= image %>" class="profileimg"></a>
-            <div class="sidebar-prop">
-                <strong><h1 id="profilename" style="text-transform: capitalize"><%= name %></h1></strong>
-                <div class="alert alert-warning" role="alert" id="reputation"><h4 id="repuword"><strong><%= like_count*5 %></strong>&nbsp<small> REPUTATION</small></h4></div>
+      <div class="row">
+        <!-- sidebar -->
+        <div class="column col-sm-3" id="sidebar">
+          <a class="logo" href="#"><img style="width:150px;height:150px;" src="<%= image %>" class="profileimg"></a>
+          <div class="sidebar-prop">
+            <strong><h1 id="profilename" style="text-transform: capitalize"><%= name %></h1></strong>
+            <div class="alert alert-warning" role="alert" id="reputation">
+              <h4 id="repuword"><strong><%= like_count*5 %></strong>&nbsp<small> REPUTATION</small></h4></div>
+          </div>
+          <div class="badges col-sm-3">
+            <div class="badgeitems">
+              <div class="color-box " style="background-color: #FF850A;"></div>
+              <div style="font-size:18px">Badge_name1</div>
             </div>
-            <div class="badges col-sm-3">
-							    <div class="badgeitems" ><div class="color-box " style="background-color: #FF850A;"></div>
-										 <div style="font-size:18px">Badge_name1</div>
-									 </div></br></br>
-									 <div class="badgeitems" ><div class="color-box " style="background-color: #52DE3F;"></div>
-										 <div style="font-size:18px">Badge_name2</div>
-									 </div></br></br>
-									 <div class="badgeitems" ><div class="color-box " style="background-color:#42DAD6;"></div>
-										 <div style="font-size:18px">Badge_name3</div>
-									 </div>
-                                </div>
+            </br>
+            </br>
+            <div class="badgeitems">
+              <div class="color-box " style="background-color: #52DE3F;"></div>
+              <div style="font-size:18px">Badge_name2</div>
             </div>
-            <!-- /sidebar -->
-
-            <!-- main -->
-            <div class="column col-sm-9" id="main">
-            <div>
-                <div class="goto" style="float: right; margin-right: 4%;margin-top: 1%"><a href="/logout" class="btn btn-default"><b>Logout</b></a> </div>
-                <div class="goto" style="float: right; margin-right: 4%;margin-top: 1%"><a href="/timeline" class="btn btn-default"><b>Timeline</b></a> </div>
+            </br>
+            </br>
+            <div class="badgeitems">
+              <div class="color-box " style="background-color:#42DAD6;"></div>
+              <div style="font-size:18px">Badge_name3</div>
             </div>
-                <div class="padding">
-                    <div class="full col-sm-9">
-                        <div class="col-sm-12" id="featured">
-                          <div class="page-header text-muted">
-                            User Details
-                          </div>
-                        </div>
-                         <div class="row" style="margin-left:2%">
-                              <div class="col-sm-12">
-                                <h4>EMAIL : <span><%= email %></span></h4>
-                                <h4>User Details : <span></span></h4>
-
-                              </div>
-                        </div>
-                        <!-- content -->
-
-                        <div class="col-sm-12" id="featured">
-                          <div class="page-header text-muted">
-                          Recent Works
-                          </div>
-                        </div>
-
-
-
-                        <!--/stories-->
-					<% for(i=0;i<posts.length;i++){ post = posts[i] %>
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <h3><%= post.heading %></h3>
-                            <div class="col-md-6 col-sm-12">
-                            <a title="Image 1">
-                                <img class="thumbnail img-responsive" id="image-2" src="<%= post.image_before %>">
-                            </a>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <h4><span class="label label-success">solution</span></h4><h4>
-                                <h4 class="description">DESCRIPTION : <small><%= post.description %></small></h4>
-                                <h4 class="description">STAKE-HOLDERS : <small><%= post.stake_holders %></small></h4>
-                                <h5>Location : <small><%= post.description %></small></h5>
-                                <h5>Likes : <small id="like-count"><%= post.like_count %></small><small class="text-muted" style="float:right;"><%= post.date %></small></h5>
-                                <a href="#"><i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i></a></i>
-                            </div>
-                          </div>
-                          <!-- <div class="col-sm-2">
-                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/men/86.jpg" class="img-circle"></a>
-                          </div>  -->
-                        </div>
-
-                        <div class="row divider">
-                           <div class="col-sm-12"><hr></div>
-                        </div>
-					<% } %>
-                        <div class="hidden" id="img-repo">
-
-                        <!-- #image-1 -->
-                        <div class="item" id="image-1">
-                            <img class="thumb img-responsive" title="Image 1a" src="/img/01.jpg">
-                        </div>
-                        <div class="item" id="image-1">
-                            <img class="thumb img-responsive" title="Image 1b" src="/img/02.jpg">
-                        </div>
-
-
-                        <!-- #image-2 -->
-                        <div class="item" id="image-2">
-                            <img class="thumb img-responsive" title="Image 2a" src="/img/03.jpg">
-                        </div>
-                        <div class="item" id="image-2">
-                            <img class="thumb img-responsive" title="Image 2b" src="/img/04.jpg">
-                        </div>
-
-
-                        <!-- #image-3-->
-                        <div class="item" id="image-3">
-                            <img class="thumb img-responsive" title="Image 3a" src="/img/05.jpg">
-                        </div>
-                        <div class="item" id="image-3">
-                            <img class="thumb img-responsive" title="Image 3b" src="/img/01.jpg">
-                        </div>
-
-                        <!--image-4 -->
-                        <div class="item" id="image-4">
-                            <img class="thumb img-responsive" title="Image 4a" src="/img/05.jpg">
-                        </div>
-                        <div class="item" id="image-4">
-                            <img class="thumb img-responsive" title="Image 4b" src="/img/01.jpg">
-                        </div>
-
-                        <!--image-5-->
-                        <div class="item" id="image-5">
-                            <img class="thumb img-responsive" title="Image 5a" src="/img/05.jpg">
-                        </div>
-                        <div class="item" id="image-5">
-                            <img class="thumb img-responsive" title="Image 5b" src="/img/01.jpg">
-                        </div>
-
-                        <!--image-6-->
-                        <div class="item" id="image-6">
-                            <img class="thumb img-responsive" title="Image 6a" src="/img/05.jpg">
-                        </div>
-                        <div class="item" id="image-6">
-                            <img class="thumb img-responsive" title="Image 6b" src="/img/01.jpg">
-                        </div>
-                    </div>
-                    <div class="modal" id="modal-gallery" role="dialog">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button class="close" type="button" data-dismiss="modal">×</button>
-                                    <h3 class="modal-title"></h3>
-                                </div>
-                                <div class="modal-body">
-                                    <div id="modal-carousel" class="carousel">
-
-                                        <div class="carousel-inner">
-                                        </div>
-
-                                         <a class="carousel-control left" style="margin-top: 25%" href="#modal-carousel" data-slide="prev"><i class="fa  fa-2x fa-chevron-left"></i></a>
-                                         <a class="carousel-control right" style="margin-top: 25.5%" href="#modal-carousel" data-slide="next"><i class="fa fa-2x fa-chevron-right"></i></a>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-primary" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                        <hr>
-
-
-
-                    </div><!-- /col-9 -->
-                </div><!-- /padding -->
-            </div>
-            <!-- /main -->
+          </div>
         </div>
+        <!-- /sidebar -->
+
+        <!-- main -->
+        <div class="column col-sm-9" id="main">
+          <div>
+            <div class="goto" style="float: right; margin-right: 4%;margin-top: 1%"><a href="/logout" class="btn btn-default"><b>Logout</b></a> </div>
+            <div class="goto" style="float: right; margin-right: 4%;margin-top: 1%"><a href="/timeline" class="btn btn-default"><b>Timeline</b></a> </div>
+          </div>
+          <div class="padding">
+            <div class="full col-sm-9">
+              <div class="col-sm-12" id="featured">
+                <div class="page-header text-muted">
+                  User Details
+                </div>
+              </div>
+              <div class="row" style="margin-left:2%">
+                <div class="col-sm-12">
+                  <h4>EMAIL : <span><%= email %></span></h4>
+                  <h4>User Details : <span></span></h4>
+
+                </div>
+              </div>
+              <!-- content -->
+
+              <div class="col-sm-12" id="featured">
+                <div class="page-header text-muted">
+                  Recent Works
+                </div>
+              </div>
+
+
+
+              <!--/stories-->
+              <% for(i=1;i<posts.length+1;i++){ post = posts[i-1] %>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h3><%= post.heading %></h3>
+                    <div class="col-md-6 col-sm-12">
+                      <a title="Image <%=i%>">
+                                <img class="thumbnail img-responsive" id="image-<%=i%>" src="<%= post.image_before %>">
+                            </a>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                      <h4><span class="label label-success">solution</span></h4>
+                      <h4>
+                                <h4 class="description">DESCRIPTION : <small><%= post.description %></small></h4>
+                      <h4 class="description">STAKE-HOLDERS : <small><%= post.stake_holders %></small></h4>
+                      <h5>Location : <small><%= post.location%></small></h5>
+                      <h5>Likes : <small id="like-count"><%= post.like_count %></small><small class="text-muted" style="float:right;"><%= post.date %></small></h5>
+                      <a href="#"><i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i></a></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="hidden" id="img-repo">
+                  <div class="item" id="image-<%=i%>">
+                    <img class="thumb img-responsive" title="Image <%=i%>a" src="<%= post.image_before %>">
+                  </div>
+                  <div class="item" id="image-<%=i%>">
+                    <img class="thumb img-responsive" title="Image <%=i%>b" src="<%= post.image_after %>">
+                  </div>
+                </div>
+
+
+
+                <div class="row divider">
+                  <div class="col-sm-12">
+                    <hr>
+                  </div>
+                </div>
+                <% } %>
+                  <!-- <div class="hidden" id="img-repo">
+
+                     #image-1 -->
+                    <!-- <div class="item" id="image-1">
+                            <img class="thumb img-responsive" title="Image 1a" src="<%= post.image_before %>">
+                        </div>
+                        <div class="item" id="image-1">
+                            <img class="thumb img-responsive" title="Image 1b" src="<%= post.image_after %>">
+                        </div> -->
+
+
+                    <!-- #image-2 -->
+                    <!-- <div class="item" id="image-2">
+                      <img class="thumb img-responsive" title="Image 2a" src="/img/03.jpg">
+                    </div>
+                    <div class="item" id="image-2">
+                      <img class="thumb img-responsive" title="Image 2b" src="/img/04.jpg">
+                    </div>
+ -->
+
+
+                  </div> -->
+                  <div class="modal" id="modal-gallery" role="dialog">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button class="close" type="button" data-dismiss="modal">×</button>
+                          <h3 class="modal-title"></h3>
+                        </div>
+                        <div class="modal-body">
+                          <div id="modal-carousel" class="carousel">
+
+                            <div class="carousel-inner">
+                            </div>
+
+                            <a class="carousel-control left" style="margin-top: 25%" href="#modal-carousel" data-slide="prev"><i class="fa  fa-2x fa-chevron-left"></i></a>
+                            <a class="carousel-control right" style="margin-top: 25.5%" href="#modal-carousel" data-slide="next"><i class="fa fa-2x fa-chevron-right"></i></a>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button class="btn btn-primary" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr>
+
+
+
+            </div>
+            <!-- /col-9 -->
+          </div>
+          <!-- /padding -->
+        </div>
+        <!-- /main -->
+      </div>
     </div>
-</div>
-	<!-- script references -->
-		<script src="/javascript/vendor/jquery/jquery.min.js"></script>
-    <script src="/javascript/vendor/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/javascript/vendor/freelancer.js"></script>
-	</body>
+  </div>
+  <!-- script references -->
+  <script src="/javascript/vendor/jquery/jquery.min.js"></script>
+  <script src="/javascript/vendor/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/javascript/vendor/freelancer.js"></script>
+</body>
+
 </html>
