@@ -39,7 +39,9 @@ router.post('/', upload.array('files', 12), function(req, res, next) {
 	console.log(req.body);
 	console.log(req.files);
 	console.log(req.files.length);
-	console.log(req.files.path);
+	console.log(req.files[0].path);
+  req.files[0].path=req.files[0].path.substr(req.files[0].path.indexOf('/')+1,req.files[0].path.length-1);
+
   if (req.files.length > 1) {
     res.send("Exceeds file limit");
   } else {
@@ -51,7 +53,8 @@ router.post('/', upload.array('files', 12), function(req, res, next) {
         email: req.body.email,
         password: req.body.password,
         city: req.body.city,
-        image: req.files[0].path
+        image: req.files[0].path,
+				like_count:0
       });
       User.findOne({
         email: new_user.email

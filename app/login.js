@@ -16,7 +16,7 @@ router.get('/',function(req,res){
 router.post('/',function(req,res){
 		console.log("got post request");
 	//res.send(req.body);
-	req.body = req.fields;
+	// req.body = req.fields;
 	if(!req.body.email || !req.body.password){
 		  res.status(502).send('Insufficient field values');
 		//res.send("enter some data/empty fields are present");
