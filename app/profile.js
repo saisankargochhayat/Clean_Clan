@@ -32,7 +32,8 @@ router.get('/',auth,function(req,res,next){
             location:user.city,
             image:user.image,
             like_count:10,
-            posts : posts
+            posts : posts,
+            author:user._id.toString()
           }
           res.render('./pages/profile',render_data);
         })

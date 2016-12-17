@@ -77,9 +77,8 @@
                 </div>
               </div>
 
-
-
               <!--/stories-->
+              <% if(posts.length) { %>
               <% for(i=1;i<posts.length+1;i++){ post = posts[i-1] %>
                 <div class="row">
                   <div class="col-sm-12">
@@ -117,6 +116,9 @@
                   </div>
                 </div>
                 <% } %>
+                  <% } %>
+
+
                   <!-- <div class="hidden" id="img-repo">
 
                      #image-1 -->
@@ -135,10 +137,10 @@
                     <div class="item" id="image-2">
                       <img class="thumb img-responsive" title="Image 2b" src="/img/04.jpg">
                     </div>
- -->
 
 
-                  </div> -->
+
+                  </div>  -->
                   <div class="modal" id="modal-gallery" role="dialog">
                     <div class="modal-dialog">
                       <div class="modal-content">
