@@ -50,6 +50,7 @@ router.post('/create', auth, upload.array('images', 12), function(req, res, next
         stake_holders: req.body.stake_holders,
         heading: req.body.heading,
         author: req.session.userid.toString(),
+        author_image:req.session.userimage.toString(),
         image_before: req.files[0].path,
         image_after: req.files[1].path
       });

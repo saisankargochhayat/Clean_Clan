@@ -39,7 +39,9 @@ router.post('/',function(req,res){
 						else if(result) {
 							req.session.email = user.email;
 							req.session.userid = user._id;
+							req.session.userimage=user.image;
 							console.log(req.session.userid + " is the id");
+							console.log(req.session.userimage + " is the image");
 							res.send("Success");
 						}
 						else {

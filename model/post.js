@@ -9,6 +9,7 @@ var postSchema = new Schema({
   description : String,
   author : String,
   location : String,
+  author_image:String,
   image_before: String,
   image_after: String,
 },{collection:'post'})
