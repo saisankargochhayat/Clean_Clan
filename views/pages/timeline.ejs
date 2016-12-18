@@ -64,12 +64,12 @@
         <div class="row">
           <div class="col-sm-11">
             <h3><%= post.heading %></h3>
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-5 col-sm-12">
               <a title="Image <%=i%>">
                         <img class="thumbnail img-responsive" id="image-<%=i%>" src="<%= post.image_before %>">
                     </a>
             </div>
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-7 col-sm-12">
               <h4><span class="label label-success">solution</span></h4>
               <h4>
                         <h4 class="description">DESCRIPTION : <small><%= post.description %></small></h4>
@@ -135,6 +135,15 @@
     <!-- /padding -->
     </div>
     <!-- /main -->
+            <div id="container-floating">
+
+                          <div class="nd5 nds" data-toggle="tooltip" data-placement="left" data-original-title="Simone"></div>
+                          <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create" onclick="newmail()">
+                            <p class="plus">+</p>
+                            <img class="edit" src="http://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/bt_compose2_1x.png">
+                          </div>
+
+            </div>
     </div>
     </div>
     </div>
@@ -142,14 +151,6 @@
     <script src="/javascript/vendor/jquery/jquery.min.js"></script>
     <script src="/javascript/vendor/bootstrap.min.js"></script>
     <script type="text/javascript" src="/javascript/vendor/freelancer.js"></script>
-          <!-- <script>
-            $(document).ready(function() {
-              if ($(window).width() < 500) {
-                  $(".proimg").empty();
-                }
-
-            });
-        </script> -->
     </body>
 
     </html>
