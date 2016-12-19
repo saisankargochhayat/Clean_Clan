@@ -91,16 +91,16 @@
  <body>
  	<div class="login-page">
   <div class="form">
-    <!-- <form class="login-form" method="post" action="/post/create" method="post" enctype="multipart/form-data" style="margin-bottom: 10%"> -->
+    <form id="postform" class="login-form" method="post" action="/post/create" method="post" enctype="multipart/form-data" style="margin-bottom: 10%">
       <input type="text" name="location" value="" placeholder="Location" id="loc"><br>
       <input type="text" name="heading" value="" placeholder="Heading" id="headings"><br>
       <input type="text" name="description" value="" placeholder="Description" id="description"><br>
       <input type="text" name="stake_holders" value="" placeholder="Stake Holders" id="stakes"><br>
       <input type="file" name="images" value="" multiple="true">
       <!-- <input type="submit" name="submit" value="Submit"> -->
-      <button id="postbtn" type="submit" name="submit" value="Submit">post</button>      
-    <!-- </form> -->
-    <p class="postmsg"></p>
+      <button id="postbtn" type="submit" name="submit" value="Submit">post</button>
+    </form>
+    <p class="postmsg" id="postmsg"></p>
   </div>
 </div>
 <script src="../javascript/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -109,7 +109,7 @@
   <script type="text/javascript" src="/javascript/jquery.js"></script>
   <script type="text/javascript" src="/javascript/loginf.js"></script>
   <script type="text/javascript">
-    
+
         $(document).ready(function() {
              $('#postform').submit(function(event) {
                  event.preventDefault()
@@ -127,12 +127,12 @@
                       console.log(data);
                       if(data=="Exceeds file limit")
                       {
-                        $(n).siblings('.postmsg').empty().append("<strong>Exceeds file limit,You can upload only two  photos</strong>");
-                        $(n).siblings('.postmsg').addClass("alert alert-danger alert-dismissible");
+                        $('#postmsg').empty().append("<strong>Exceeds file limit,You can upload only two  photos</strong>");
+                        $('#postmsg').addClass("alert alert-danger alert-dismissible");
                       }
                       if (data == "Post saved succesfully") {
-                        $(n).siblings('.postmsg').empty().append("<strong>Post saved succesfully</strong> ");
-                        $(n).siblings('.postmsg').addClass("alert alert-success alert-dismissible");
+                        $('#postmsg').empty().append("<strong>Post saved succesfully</strong> ");
+                        $('#postmsg').addClass("alert alert-success alert-dismissible");
                         setTimeout(function() {
                           s = document.URL;
                           window.location.href = s.substr(0, s.lastIndexOf('/')) + '/profile';
@@ -141,13 +141,13 @@
                     },
                     error : function(xhr, status, error) {
                       console.log(error);
-                      $(n).siblings('.postmsg').empty().append("<strong>" + error + "  error,<br> there might be insufficient Data</strong>");
-                      $(n).siblings('.postmsg').addClass("alert alert-danger alert-dismissible");
+                      $('#postmsg').empty().append("<strong>" + error + "  error,<br> there might be insufficient Data</strong>");
+                     $('#postmsg').addClass("alert alert-danger alert-dismissible");
                     }
-                  });                
+                  });
              });
         });
-  
+
 
  </script>
  </body>
