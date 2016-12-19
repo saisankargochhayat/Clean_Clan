@@ -91,15 +91,15 @@
  <body>
  	<div class="login-page">
   <div class="form">
-    <!-- <form class="login-form" method="post" action="/post/create" method="post" enctype="multipart/form-data" style="margin-bottom: 10%"> -->
+    <form id='postform' class="login-form" method="post" action="/post/create" method="post" enctype="multipart/form-data" style="margin-bottom: 10%">
       <input type="text" name="location" value="" placeholder="Location" id="loc"><br>
       <input type="text" name="heading" value="" placeholder="Heading" id="headings"><br>
       <input type="text" name="description" value="" placeholder="Description" id="description"><br>
       <input type="text" name="stake_holders" value="" placeholder="Stake Holders" id="stakes"><br>
       <input type="file" name="images" value="" multiple="true">
-      <!-- <input type="submit" name="submit" value="Submit"> -->
-      <button id="postbtn" type="submit" name="submit" value="Submit">post</button>      
-    <!-- </form> -->
+      <!-- <input type="submit" name="submit" value="Post"> -->
+      <button id="postbtn" type="submit" name="submit" value="Submit">post</button>
+    </form>
     <p class="postmsg"></p>
   </div>
 </div>
@@ -109,7 +109,7 @@
   <script type="text/javascript" src="/javascript/jquery.js"></script>
   <script type="text/javascript" src="/javascript/loginf.js"></script>
   <script type="text/javascript">
-    
+
         $(document).ready(function() {
              $('#postform').submit(function(event) {
                  event.preventDefault()
@@ -144,10 +144,10 @@
                       $(n).siblings('.postmsg').empty().append("<strong>" + error + "  error,<br> there might be insufficient Data</strong>");
                       $(n).siblings('.postmsg').addClass("alert alert-danger alert-dismissible");
                     }
-                  });                
+                  });
              });
         });
-  
+
 
  </script>
  </body>
