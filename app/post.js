@@ -52,7 +52,10 @@ router.post('/create', auth, upload.array('images', 12), function(req, res, next
         author: req.session.userid.toString(),
         author_image:req.session.userimage.toString(),
         image_before: req.files[0].path,
-        image_after: req.files[1].path
+        image_after: req.files[1].path,
+        like_count:req.body.like_count,
+        likes:[],
+        author_name:req.session.name
       });
       new_post.save(function(err, post) {
         if (err) {
@@ -65,6 +68,48 @@ router.post('/create', auth, upload.array('images', 12), function(req, res, next
     }
   }
 });
+
+router.put('/:postId/like',auth,function(req,res,next){
+  Post.findByIdAndUpdate(req.params.postId, {
+    $push: {
+     likes: req.session.userid
+   }
+  }, {
+       new: true
+  }, function (err, post) {
+      if(err) throw(err);
+      res.send(post);
+  });
+
+});
+
+router.put('/:postId/unlike',auth,function(req,res,next){
+  Post.findByIdAndUpdate(req.params.postId, {
+    $pull: {
+     likes: req.session.userid
+   }
+  }, {
+       new: true
+  }, function (err, post) {
+      if(err) throw(err);
+      res.send(post);
+  });
+
+});
+
+router.get('/:postId/checklike',auth,function(req,res,next){
+  Post.findById(req.params.postId, function(err,post){
+      if(err) throw(err);
+      if(post.likes.indexOf(req.session.userid)>=0)
+      res.send(true);
+      else {
+        res.send(false);
+      }
+
+})
+
+});
+
 
 //export our router
 module.exports = router;

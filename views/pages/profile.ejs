@@ -11,7 +11,11 @@
    <link href="/css/strap.min.css" rel="stylesheet">
    <link href="/css/profile.css" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
-
+   <!-- script references -->
+   <script src="/javascript/jquery.js"></script>
+   <script src="/javascript/vendor/bootstrap.min.js"></script>
+   <script type="text/javascript" src="/javascript/vendor/freelancer.js"></script>
+   <script src="/javascript/likesf.js"></script>
 
 
 </head>
@@ -76,10 +80,16 @@
        Recent Works
   </div>
 </div>
+<%=current_userid%>
+
 
 <!--/stories-->
 <% if(posts.length) { %>
-<% for(i=1;i<posts.length+1;i++){ post = posts[i-1] %>
+<% for(i=1;i<posts.length+1;i++){ post = posts[i-1];
+  postid_remove = "remove_like('"+post._id+"');";
+  postid_add = "like_add('"+post._id+"');";
+   %>
+
 <div class="row">
   <div class="col-sm-12">
      <h3><%= post.heading %></h3>
@@ -89,13 +99,21 @@
         </a>
    </div>
    <div class="col-md-6 col-sm-12">
+     <!-- <script>
+    var s="<%= post._id %>";
+
+     </script> -->
         <h4><span class="label label-success">solution</span></h4>
         <h4>
-             <h4 class="description">DESCRIPTION : <small><%= post.description %></small></h4>
-             <h4 class="description">STAKE-HOLDERS : <small><%= post.stake_holders %></small></h4>
-             <h5>Location : <small><%= post.location%></small></h5>
-             <h5>Likes : <small id="like-count"><%= post.like_count %></small><small class="text-muted" style="float:right;"><%= post.date %></small></h5>
-             <a href="#"><i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i></a></i>
+             <h4 class="description">DESCRIPTION : <small style="text-transform: capitalize;"><%= post.description %></small></h4>
+             <h4 class="description">STAKE-HOLDERS : <small style="text-transform: capitalize;"><%= post.stake_holders %></small></h4>
+             <h5>LOCATION : <small style="text-transform: capitalize;"><%= post.location%></small></h5>
+             <h5>LIKES : <small id="like-count"><%= post.like_count %></small><small class="text-muted" style="float:right;"><%= post.date %></small></h5>
+              <% if(post.likes.indexOf(current_userid)>=0) { %>
+            <button id="like<%= post._id %>" class="like" onclick="<%=postid_remove%>"><i class="fa fa-heart fa-2x "style="color:green;" ></i></button>
+          <% }else { %>
+              <button id="like<%= post._id %>" class="like" onclick="<%=postid_add%>"><i class="fa fa-heart fa-2x" style="color:red;"></i></button>
+          <% } %>
         </div>
    </div>
 </div>
@@ -121,16 +139,9 @@
 
                   <!-- <div class="hidden" id="img-repo">
 
-                  #image-1 -->
-                    <!-- <div class="item" id="image-1">
-                            <img class="thumb img-responsive" title="Image 1a" src="<%= post.image_before %>">
-                        </div>
-                        <div class="item" id="image-1">
-                            <img class="thumb img-responsive" title="Image 1b" src="<%= post.image_after %>">
-                       </div> -->
 
 
-                       <!-- #image-2 -->
+                        #image-2 -->
                     <!-- <div class="item" id="image-2">
                       <img class="thumb img-responsive" title="Image 2a" src="/img/03.jpg">
                     </div>
@@ -166,7 +177,7 @@
     </div>
 
     <hr>
-    
+
     <div id="container-floating">
     <div class="nd5 nds"  data-placement="left" data-original-title="Simone"></div>
        <div id="floating-button" data-placement="left" data-original-title="Create" >
@@ -184,10 +195,7 @@
 </div>
 </div>
 </div>
-<!-- script references -->
-<script src="/javascript/vendor/jquery/jquery.min.js"></script>
-<script src="/javascript/vendor/bootstrap.min.js"></script>
-<script type="text/javascript" src="/javascript/vendor/freelancer.js"></script>
+
 
 </body>
 

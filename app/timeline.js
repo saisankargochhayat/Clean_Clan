@@ -23,6 +23,7 @@ router.get('/', auth, function(req, res, next) {
   Post.find({}, function(err, posts) {
     var render__data = {
       posts: posts,
+      current_userid:req.session.userid,
     }
     res.render('./pages/timeline', render__data);
   });

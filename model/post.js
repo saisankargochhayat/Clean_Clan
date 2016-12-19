@@ -6,6 +6,8 @@ var postSchema = new Schema({
   heading : String,
   like_count :{type:Number,default:0},
   stake_holders:String,
+  likes:[String],
+  author_name:String,
   description : String,
   author : String,
   location : String,

@@ -7,11 +7,11 @@ function validateEmail($email) {
 }
 
 $(document).ready(function() {
-  $('#login').click(function(event) {
-
+  $('#loginform').submit(function(event) {
+event.preventDefault()
 if( validateEmail($("#email").val())) {
 
-    var n = $(this)
+    var n = $("#loginbutton")
     $.post(document.URL, {
         email: $('#email').val(),
         password: $('#passwordconf').val()
@@ -42,8 +42,8 @@ if( validateEmail($("#email").val())) {
       })
 
     }else {
-      $('#login').siblings('.msg').empty().append("<strong>Not a valid Email</strong>");
-      $('#login').siblings('.msg').addClass("alert alert-success alert-dismissible");
+      $('#loginbutton').siblings('.msg').empty().append("<strong>Not a valid Email</strong>");
+      $('#loginbutton').siblings('.msg').addClass("alert alert-success alert-dismissible");
     }
 
 

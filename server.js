@@ -25,7 +25,6 @@ var login = require('./app/login');
 var profile = require('./app/profile');
 var timeline = require('./app/timeline');
 var post = require('./app/post')
-
 //set static files(css or js or imgs)
 app.use(express.static(__dirname + "/public"));
 app.use('/uploads', serveIndex('public/uploads'));
@@ -53,6 +52,7 @@ app.use('/login',login);
 app.use('/profile',profile);
 app.use('/timeline',timeline);
 app.use('/post',post)
+
 
 //start your server
 app.listen(port,function(){
