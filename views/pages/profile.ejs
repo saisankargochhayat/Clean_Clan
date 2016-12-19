@@ -11,11 +11,7 @@
    <link href="/css/strap.min.css" rel="stylesheet">
    <link href="/css/profile.css" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
-   <!-- script references -->
-   <script src="/javascript/jquery.js"></script>
-   <script src="/javascript/vendor/bootstrap.min.js"></script>
-   <script type="text/javascript" src="/javascript/vendor/freelancer.js"></script>
-   <script src="/javascript/likesf.js"></script>
+
 
 
 </head>
@@ -31,23 +27,23 @@
                   <strong><h1 id="profilename" style="text-transform: capitalize"><%= name %></h1></strong>
                   <div class="alert alert-warning" role="alert" id="reputation">
                      <h4 id="repuword"><strong><%= like_count*5 %></strong>&nbsp<small> REPUTATION</small></h4></div>
-                </div>
-                <div class="badges col-sm-3">
+                 </div>
+                 <div class="badges col-sm-3">
                   <div class="badgeitems">
                      <div class="color-box " style="background-color: #FF850A;"></div>
                      <div style="font-size:18px">Badge_name1</div>
-                </div>
-           </br>
-      </br>
-      <div class="badgeitems">
-           <div class="color-box " style="background-color: #52DE3F;"></div>
-           <div style="font-size:18px">Badge_name2</div>
-      </div>
+                 </div>
+             </br>
+         </br>
+         <div class="badgeitems">
+             <div class="color-box " style="background-color: #52DE3F;"></div>
+             <div style="font-size:18px">Badge_name2</div>
+         </div>
+     </br>
  </br>
-</br>
-<div class="badgeitems">
- <div class="color-box " style="background-color:#42DAD6;"></div>
- <div style="font-size:18px">Badge_name3</div>
+ <div class="badgeitems">
+   <div class="color-box " style="background-color:#42DAD6;"></div>
+   <div style="font-size:18px">Badge_name3</div>
 </div>
 </div>
 </div>
@@ -55,111 +51,98 @@
 
 <!-- main -->
 <div class="column col-sm-9" id="main">
-     <div>
-        <div class="goto" style="float: right; margin-right: 4%;margin-top: 1%"><a href="/logout" class="btn btn-default"><b>Logout</b></a> </div>
-        <div class="goto" style="float: right; margin-right: 4%;margin-top: 1%"><a href="/timeline" class="btn btn-default"><b>Timeline</b></a> </div>
-   </div>
-   <div class="padding">
-        <div class="full col-sm-9">
-           <div class="col-sm-12" id="featured">
-              <div class="page-header text-muted">
-                 User Details
-            </div>
+   <div>
+      <div class="goto" style="float: right; margin-right: 4%;margin-top: 1%"><a href="/logout" class="btn btn-default"><b>Logout</b></a> </div>
+      <div class="goto" style="float: right; margin-right: 4%;margin-top: 1%"><a href="/timeline" class="btn btn-default"><b>Timeline</b></a> </div>
+  </div>
+  <div class="padding">
+      <div class="full col-sm-9">
+         <div class="col-sm-12" id="featured">
+            <div class="page-header text-muted">
+               User Details
+           </div>
        </div>
        <div class="row" style="margin-left:2%">
          <div class="col-sm-12">
             <h4>EMAIL : <span><%= email %></span></h4>
             <h4>User Details : <span></span></h4>
 
-       </div>
-  </div>
-  <!-- content -->
-
-  <div class="col-sm-12" id="featured">
-    <div class="page-header text-muted">
-       Recent Works
-  </div>
-</div>
-<%=current_userid%>
-
-
-<!--/stories-->
-<% if(posts.length) { %>
-<% for(i=1;i<posts.length+1;i++){ post = posts[i-1];
-  postid_remove = "remove_like('"+post._id+"');";
-  postid_add = "like_add('"+post._id+"');";
-   %>
-
-<div class="row">
-  <div class="col-sm-12">
-     <h3><%= post.heading %></h3>
-     <div class="col-md-6 col-sm-12">
-        <a title="Image <%=i%>">
-             <img class="thumbnail img-responsive" id="image-<%=i%>" src="<%= post.image_before %>">
-        </a>
-   </div>
-   <div class="col-md-6 col-sm-12">
-     <!-- <script>
-    var s="<%= post._id %>";
-
-     </script> -->
-        <h4><span class="label label-success">solution</span></h4>
-        <h4>
-             <h4 class="description">DESCRIPTION : <small style="text-transform: capitalize;"><%= post.description %></small></h4>
-             <h4 class="description">STAKE-HOLDERS : <small style="text-transform: capitalize;"><%= post.stake_holders %></small></h4>
-             <h5>LOCATION : <small style="text-transform: capitalize;"><%= post.location%></small></h5>
-             <h5>LIKES : <small id="like-count"><%= post.like_count %></small><small class="text-muted" style="float:right;"><%= post.date %></small></h5>
-              <% if(post.likes.indexOf(current_userid)>=0) { %>
-            <button id="like<%= post._id %>" class="like" onclick="<%=postid_remove%>"><i class="fa fa-heart fa-2x "style="color:green;" ></i></button>
-          <% }else { %>
-              <button id="like<%= post._id %>" class="like" onclick="<%=postid_add%>"><i class="fa fa-heart fa-2x" style="color:red;"></i></button>
-          <% } %>
         </div>
-   </div>
-</div>
-<div class="hidden" id="img-repo">
-  <div class="item" id="image-<%=i%>">
-     <img class="thumb img-responsive" title="Image <%=i%>a" src="<%= post.image_before %>">
-</div>
-<div class="item" id="image-<%=i%>">
-     <img class="thumb img-responsive" title="Image <%=i%>b" src="<%= post.image_after %>">
-</div>
-</div>
+    </div>
+    <!-- content -->
+
+      <div class="col-sm-12" id="featured">
+        <div class="page-header text-muted">
+           Recent Works
+      </div>
+    </div>
+    <%=current_userid%>
+
+
+    <!--/stories-->
+    <% if(posts.length) { %>
+    <% for(i=1;i<posts.length+1;i++){ post = posts[i-1];
+      postid_remove = "remove_like('"+post._id+"');";
+      postid_add = "like_add('"+post._id+"');";
+       %>
+
+    <div class="row">
+
+      <div class="col-sm-12">
+         <h3><%= post.heading %></h3>
+         <div class="col-md-6 col-sm-12">
+            <a title="Image <%=i%>">
+               <img class="thumbnail img-responsive" id="image-<%=i%>" src="<%= post.image_before %>">
+           </a>
+       </div>
+       <div class="col-md-6 col-sm-12">
+
+         <!-- <script>
+        var s="<%= post._id %>";
+
+         </script> -->
+            <h4><span class="label label-success">solution</span></h4>
+            <h4>
+                 <h4 class="description">DESCRIPTION : <small style="text-transform: capitalize;"><%= post.description %></small></h4>
+                 <h4 class="description">STAKE-HOLDERS : <small style="text-transform: capitalize;"><%= post.stake_holders %></small></h4>
+                 <h5>LOCATION : <small style="text-transform: capitalize;"><%= post.location%></small></h5>
+                 <h5>LIKES : <small id="like-count"><%= post.like_count %></small><small class="text-muted" style="float:right;"><%= post.date %></small></h5>
+                  <% if(post.likes.indexOf(current_userid)>=0) { %>
+                <button id="like<%= post._id %>" class="like" onclick="<%=postid_remove%>"><i class="fa fa-heart fa-2x "style="color:green;" ></i></button>
+              <% }else { %>
+                  <button id="like<%= post._id %>" class="like" onclick="<%=postid_add%>"><i class="fa fa-heart fa-2x" style="color:red;"></i></button>
+              <% } %>
+            </div>
+       </div>
+
+    </div>
+    <div class="hidden" id="img-repo">
+      <div class="item" id="image-<%=i%>">
+         <img class="thumb img-responsive" title="Image <%=i%>a" src="<%= post.image_before %>">
+     </div>
+     <div class="item" id="image-<%=i%>">
+         <img class="thumb img-responsive" title="Image <%=i%>b" src="<%= post.image_after %>">
+     </div>
+    </div>
 
 
 
-<div class="row divider">
-  <div class="col-sm-12">
-     <hr>
-</div>
-</div>
-<% } %>
-<% } %>
+    <div class="row divider">
+      <div class="col-sm-12">
+         <hr>
+     </div>
+    </div>
+    <% } %>
+    <% } %>
 
-
-                  <!-- <div class="hidden" id="img-repo">
-
-
-
-                        #image-2 -->
-                    <!-- <div class="item" id="image-2">
-                      <img class="thumb img-responsive" title="Image 2a" src="/img/03.jpg">
-                    </div>
-                    <div class="item" id="image-2">
-                      <img class="thumb img-responsive" title="Image 2b" src="/img/04.jpg">
-                    </div>
-
-
-
-               </div>  -->
-               <div class="modal" id="modal-gallery" role="dialog">
+                <div class="modal" id="modal-gallery" role="dialog">
                     <div class="modal-dialog">
                        <div class="modal-content">
                           <div class="modal-header">
                              <button class="close" type="button" data-dismiss="modal">×</button>
                              <h3 class="modal-title"></h3>
-                        </div>
-                        <div class="modal-body">
+                         </div>
+                         <div class="modal-body">
                              <div id="modal-carousel" class="carousel">
 
                                 <div class="carousel-inner">
@@ -167,36 +150,59 @@
 
                                 <a class="carousel-control left" style="margin-top: 25%" href="#modal-carousel" data-slide="prev"><i class="fa  fa-2x fa-chevron-left"></i></a>
                                 <a class="carousel-control right" style="margin-top: 25.5%" href="#modal-carousel" data-slide="next"><i class="fa fa-2x fa-chevron-right"></i></a>
-                           </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button class="btn btn-primary" data-dismiss="modal">Close</button>
                       </div>
-                      <div class="modal-footer">
-                        <button class="btn btn-primary" data-dismiss="modal">Close</button>
-                   </div>
+                  </div>
               </div>
-         </div>
-    </div>
+          </div>
 
-    <hr>
+          <hr>
 
-    <div id="container-floating">
-    <div class="nd5 nds"  data-placement="left" data-original-title="Simone"></div>
-       <div id="floating-button" data-placement="left" data-original-title="Create" >
-          <p><a class="plus" id="postbtn">+</a></p>
-          <img class="edit" src="http://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/bt_compose2_1x.png">
-       </div>
 
-     </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                  </div>
+                  <div class="modal-body">
+                     <% include ./postform %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div id="container-floating">
+            <div class="nd5 nds"  data-placement="left" data-original-title="Simone"></div>
+            <div id="floating-button" data-placement="left" data-original-title="Create" data-toggle="modal" data-target="#myModal" >
+              <p><a class="plus" id="postbtn">+</a></p>
+              <img class="edit" src="http://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/bt_compose2_1x.png">
+          </div>
 
-<!-- /col-9 -->
-</div>
-<!-- /padding -->
+      </div>
+
+      <!-- /col-9 -->
+  </div>
+  <!-- /padding -->
 </div>
 <!-- /main -->
 </div>
 </div>
 </div>
-
-
+<!-- script references -->
+<script src="/javascript/vendor/jquery/jquery.min.js"></script>
+<script src="/javascript/vendor/bootstrap.min.js"></script>
+<script type="text/javascript" src="/javascript/vendor/freelancer.js"></script>
+<script src="/javascript/likesf.js"></script>
 </body>
 
 </html>
