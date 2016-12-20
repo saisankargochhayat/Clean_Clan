@@ -15,6 +15,7 @@ var postSchema = new Schema({
   author_image:String,
   image_before: String,
   image_after: String,
+  solutions : [String]
 },{collection:'post'})
 var Post = mongoose.model('Post',postSchema);
 module.exports = Post;

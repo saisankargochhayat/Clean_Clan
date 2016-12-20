@@ -66,7 +66,16 @@ router.post('/create', auth, upload.array('images', 12), function(req, res, next
               console.log(err);
               res.send(err)
             } else {
-              res.send("Post saved succesfully");
+              User.findByIdAndUpdate(req.session.userid, {
+                $inc: {
+                 "like_count": 5
+               }
+              }, {
+                   new: true
+              }, function (err, user) {
+                  if(err) res.send(err);
+                  res.send("Post saved succesfully");
+              });
             }
           });
         }
