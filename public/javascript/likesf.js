@@ -23,24 +23,24 @@
 // }
 
 //To add the user reputation to his schema (like_count)
-var repu=parseInt($("#repuword").text());
-// console.log(repu);
-function updateuserlikes(repu) {
-  console.log("i was called");
-  var u = document.URL
-  u = u.substr(0, u.lastIndexOf('/')) + "/post/" + repu;;
-
-  $.ajax({
-    url: u,
-    method: "PUT"
-  }).
-  done(function(data) {
-    console.log(data.like_count);
-  }).fail(function(xhr, status, error) {
-    console.log(error);
-
-  })
-}
+// var repu=parseInt($("#repuword").text());
+// // console.log(repu);
+// function updateuserlikes(repu) {
+//   console.log("i was called");
+//   var u = document.URL
+//   u = u.substr(0, u.lastIndexOf('/')) + "/post/" + repu;;
+//
+//   $.ajax({
+//     url: u,
+//     method: "PUT"
+//   }).
+//   done(function(data) {
+//     console.log(data.like_count);
+//   }).fail(function(xhr, status, error) {
+//     console.log(error);
+//
+//   })
+// }
 
 
 
@@ -89,4 +89,4 @@ function remove_like(postId) {
 
 }
 
-updateuserlikes(repu);
+// updateuserlikes(repu);
