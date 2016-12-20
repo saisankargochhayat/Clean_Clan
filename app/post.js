@@ -53,7 +53,7 @@ router.post('/create', auth, upload.array('images', 12), function(req, res, next
         author_image:req.session.userimage.toString(),
         image_before: req.files[0].path,
         image_after: req.files[1].path,
-        like_count:req.body.like_count,
+        like_count:0,
         likes:[],
         author_name:req.session.name
       });

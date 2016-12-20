@@ -80,7 +80,7 @@
               <h4 class="description">DESCRIPTION : <small style="text-transform: capitalize;"><%= post.description %></small></h4>
               <h4 class="description">STAKE-HOLDERS : <small style="text-transform: capitalize;"><%= post.stake_holders %></small></h4>
               <h5>LOCATION: <small style="text-transform: capitalize;"><%= post.location%></small></h5>
-              <h5>LIKES : <small id="like-count"><%= post.like_count %></small><small class="text-muted" style="float:right;"><%= post.date %></small></h5>
+              <h5>LIKES : <small id="like-count<%= post._id %>"><%= post.likes.length %></small><small class="text-muted" style="float:right;"><%= post.date %></small></h5>
               <% if(post.likes.indexOf(current_userid)>=0) { %>
             <button id="like<%= post._id %>" class="like" onclick="<%=postid_remove%>"><i class="fa fa-heart fa-2x "style="color:green;" ></i></button>
           <% }else { %>

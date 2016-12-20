@@ -40,6 +40,8 @@ function like_add(postId) {
     console.log(data.likes);
     $("#like" + postId).find('i').css("color", "green");
     $("#like" + postId).attr('onclick', "remove_like('"+postId+"')");
+    v=parseInt($("#like-count" + postId).text());
+     $("#like-count"+postId).text(v+1);
   }).fail(function(xhr, status, error) {
     console.log(error);
 
@@ -61,6 +63,8 @@ function remove_like(postId) {
     console.log(data.likes);
     $("#like" + postId).find('i').css("color", "red");
     $("#like" + postId).attr('onclick', "like_add('"+postId+"')");
+    q=parseInt($("#like-count"+postId).text());
+     $("#like-count"+postId).text(q-1);
   }).fail(function(xhr, status, error) {
     console.log(error);
 
