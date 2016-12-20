@@ -92,7 +92,7 @@
  <body>
  	<div class="login-page">
   <div class="form">
-    <form id="postform" class="login-form" method="post" action="/post/create" method="post" enctype="multipart/form-data" style="margin-bottom: 10%">
+    <form id="solveform" class="login-form" method="post" enctype="multipart/form-data" style="margin-bottom: 10%">
       <input type="text" name="location" value="" placeholder="Location" id="loc"><br>
       <input type="text" name="heading" value="" placeholder="Heading" id="headings"><br>
       <input type="text" name="description" value="" placeholder="Description" id="description"><br>
@@ -119,14 +119,14 @@
   <script type="text/javascript">
 
         $(document).ready(function() {
-             $('#postform').submit(function(event) {
+             $('#solveform').submit(function(event) {
                  event.preventDefault()
                  var n = $(document.getElementById('postbtn'))
                   var s = document.URL
                   var data = new FormData($(this)[0]);
-                  console.log(data);
+                  console.log(solve_id);
                 $.ajax({
-                    url : '/post/create',
+                    url : '/post/'+solve_id+'/solve',
                     method:'POST',
                     data : data,
                     contentType:false,
