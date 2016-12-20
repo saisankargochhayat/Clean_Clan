@@ -26,7 +26,7 @@
                <div class="sidebar-prop">
                   <strong><h1 id="profilename" style="text-transform: capitalize"><%= name %></h1></strong>
                   <div class="alert alert-warning" role="alert" id="reputation">
-                     <h4 id="repuword"><strong><%= like_count*10%></strong>&nbsp<small> REPUTATION</small></h4></div>
+                     <h4 ><strong id="repuword"><%= like_count*10%></strong>&nbsp<small> REPUTATION</small></h4></div>
                  </div>
                  <div class="badges col-sm-3">
                   <div class="badgeitems">
@@ -76,7 +76,7 @@
            Recent Works
       </div>
     </div>
-    <%=current_userid%>
+    <h4 id="currentuser" hidden="true"><%=current_userid%></h4>
 
 
     <!--/stories-->

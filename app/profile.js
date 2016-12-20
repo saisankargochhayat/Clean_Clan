@@ -48,7 +48,10 @@ router.get('/', auth, function(req, res, next) {
           }
           res.render('./pages/profile', render_data);
         })
+
       }
+
+
     });
   }
 

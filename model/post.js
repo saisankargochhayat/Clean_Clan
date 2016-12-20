@@ -11,6 +11,7 @@ var postSchema = new Schema({
   description : String,
   author : String,
   location : String,
+  type_post:{ type: String, default: "Solution" },
   author_image:String,
   image_before: String,
   image_after: String,

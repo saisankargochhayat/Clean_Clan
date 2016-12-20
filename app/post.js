@@ -111,5 +111,21 @@ router.get('/:postId/checklike',auth,function(req,res,next){
 });
 
 
+
+router.put('/:userlike',auth,function(req,res,next){
+  User.findByIdAndUpdate(req.session.userid, {
+    $set: {
+     "like_count": req.params.userlike
+   }
+  }, {
+       new: true
+  }, function (err, user) {
+      if(err) res.send(err);
+      res.send(user);
+  });
+
+});
+
+
 //export our router
 module.exports = router;
