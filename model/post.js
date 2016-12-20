@@ -15,7 +15,12 @@ var postSchema = new Schema({
   author_image:String,
   image_before: String,
   image_after: String,
-  solutions : String
+  //this stores name of challenger of this solution
+  challenge_user_name:String,
+  //this stores post id of solutions to this challenge
+  solutions : { type: String, default: "" },
+    //this stores name of solver of this challenge
+  solutions_user_name:String
 },{collection:'post'})
 var Post = mongoose.model('Post',postSchema);
 module.exports = Post;

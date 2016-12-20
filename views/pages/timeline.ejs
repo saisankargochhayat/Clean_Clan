@@ -78,13 +78,19 @@
                     </a>
                       </div>
                       <div class="col-md-7 col-sm-12">
-                        <% if(post.type_post=="Solution") {%>
-                          <h4><span class="label label-success"><%=post.type_post%></span></h4>
+                        <% if(post.type_post=="Challenge") {%>
+                          <h4><span class="label label-danger"><%=post.type_post%></span></h4>
                           <%}  else {%>
-                            <h4><span class="label label-danger"><%=post.type_post%></span></h4>
+                            <h4><span class="label label-success"><%=post.type_post%></span></h4>
                             <%}%>
-                              <h4>
-              <h4 class="description">POSTED BY: <small style="text-transform: capitalize;"><%= post.author_name %></small></h4>
+
+                            <% if(post.type_post=="Challenge" && post.solutions.length>0) {%>
+                              <h4 class="description">Has been Solved by:<small style="text-transform: capitalize;"><%= post.solutions_user_name %></small></h4>
+                              <%}%>
+                              <% if(post.type_post=="Solved Challenge") {%>
+                                <h4 class="description">Challenged By:<small style="text-transform: capitalize;"><%= post.challenge_user_name %></small></h4>
+                                <%}%>
+                              <h4 class="description">POSTED BY: <small style="text-transform: capitalize;"><%= post.author_name %></small></h4>
                               <h4 class="description">DESCRIPTION : <small style="text-transform: capitalize;"><%= post.description %></small></h4>
                               <h4 class="description">STAKE-HOLDERS : <small style="text-transform: capitalize;"><%= post.stake_holders %></small></h4>
                               <h5>LOCATION: <small style="text-transform: capitalize;"><%= post.location%></small></h5>
@@ -95,7 +101,7 @@
                                   <button id="like<%= post._id %>" class="like" onclick="<%=postid_add%>"><i class="fa fa-heart fa-2x" style="color:red;"></i></button>
                                   <% } %>
                       </div>
-                      <%if(post.type_post=="Challenge") {%>
+                      <%if(post.type_post=="Challenge" && post.author!=current_userid && post.solutions.length==0) {%>
 
                         <button id = "<%=post._id%>" data-placement="left" data-original-title="Create" data-toggle="modal" data-target="#myModal2" class="btn btn-success solve_btn" style="margin-top:10px;">Accept </button>
                         <%}%>
@@ -108,23 +114,23 @@
                     </div>
 
                   </div>
-                  <%if(post.type_post=="Solution") { %>
-                    <div class="hidden" id="img-repo">
-                      <div class="item" id="image-<%=i%>">
-                        <img class="thumb img-responsive" title="Before" src="<%= post.image_before %>">
-                      </div>
+                  <%if(post.type_post=="Solution" || post.type_post=="Solved Challenge") { %>
+                  <div class="hidden" id="img-repo">
+                    <div class="item" id="image-<%=i%>">
+                      <img class="thumb img-responsive" title="Before" src="<%= post.image_before %>">
+                    </div>
 
                       <div class="item" id="image-<%=i%>">
                         <img class="thumb img-responsive" title="After" src="<%= post.image_after %>">
                       </div>
-                      <%}else{%>
-                        <div class="hidden" id="img-repo">
-                          <div class="item" id="image-<%=i%>">
-                            <img class="thumb img-responsive" title="Challenge To Clean This" src="<%= post.image_before %>">
-                          </div>
-                          <%}%>
+                    <%}else{%>
+                      <div class="hidden" id="img-repo">
+                        <div class="item" id="image-<%=i%>">
+                          <img class="thumb img-responsive" title="Challenge To Clean This" src="<%= post.image_before %>">
                         </div>
-                    </div>
+                      <%}%>
+                        </div>
+
 
 
                     <div class="row divider">
@@ -226,6 +232,7 @@
       <script>
       $(document).on("click",".solve_btn",function(){
         solve_id = this.id;
+
       });
       </script>
 </body>

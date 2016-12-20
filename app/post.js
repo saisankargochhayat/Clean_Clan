@@ -83,7 +83,7 @@ router.post('/create', auth, upload.array('images', 12), function(req, res, next
 
 
   }
-////FOR SOLUTION and Solved Challenge
+////FOR SOLUTION
   else{
 
 
@@ -115,17 +115,9 @@ router.post('/create', auth, upload.array('images', 12), function(req, res, next
           console.log(err);
           res.send(err)
         } else {
-          User.findByIdAndUpdate(req.session.userid, {
-            $inc: {
-             "like_count": 5
-           }
-          }, {
-               new: true
-          }, function (err, user) {
-              if(err) res.send(err);
               res.send("Post saved succesfully");
-          });
-        }
+          }
+
       });
     }
   }
@@ -166,12 +158,24 @@ router.post('/:postId/solve',auth,upload.array('images', 12),function(req,res,ne
               image_after: req.files[1].path,
               like_count:0,
               likes:[],
-              author_name:req.session.name
+              author_name:req.session.name,
+              challenge_user_name:challenge_post.author_name
             });
             new_post.save(function(err,solution_post){
               console.log(solution_post._id);
               Post.findByIdAndUpdate(challenge_post._id.toString(),
-                                        {$set:{"solutions":solution_post._id.toString()}},function(err,post){
+                                        {
+                                          $set:{
+
+                                            "solutions":solution_post._id.toString(),
+                                            "solutions_user_name":solution_post.author_name
+
+                                          }
+
+
+
+
+                                        },function(err,post){
                 if(err){
                   console.log(err);
                 }else{

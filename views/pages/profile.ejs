@@ -5,7 +5,6 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <title>Clean App India</title>
-  <meta name="generator" content="Bootply" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <link href="/css/strap.min.css" rel="stylesheet">
@@ -101,13 +100,19 @@
         var s="<%= post._id %>";
 
          </script> -->
-                        <% if(post.type_post=="Solution") {%>
-                          <h4><span class="label label-success"><%=post.type_post%></span></h4>
-                          <%}  else {%>
-                            <h4><span class="label label-danger"><%=post.type_post%></span></h4>
-                            <%}%>
-                              <h4>
-                 <h4 class="description">DESCRIPTION : <small style="text-transform: capitalize;"><%= post.description %></small></h4>
+         <% if(post.type_post=="Challenge") {%>
+           <h4><span class="label label-danger"><%=post.type_post%></span></h4>
+           <%}  else {%>
+             <h4><span class="label label-success"><%=post.type_post%></span></h4>
+             <%}%>
+             <% if(post.type_post=="Challenge" && post.solutions.length>0) {%>
+               <h4 class="description">Has been Solved by:<small style="text-transform: capitalize;"><%= post.solutions_user_name %></small></h4>
+               <%}%>
+               <% if(post.type_post=="Solved Challenge") {%>
+                 <h4 class="description">Challenged By:<small style="text-transform: capitalize;"><%= post.challenge_user_name %></small></h4>
+                 <%}%>
+                                <h4 class="description">POSTED BY: <small style="text-transform: capitalize;"><%= post.author_name %></small></h4>
+                              <h4 class="description">DESCRIPTION : <small style="text-transform: capitalize;"><%= post.description %></small></h4>
                               <h4 class="description">STAKE-HOLDERS : <small style="text-transform: capitalize;"><%= post.stake_holders %></small></h4>
                               <h5>LOCATION : <small style="text-transform: capitalize;"><%= post.location%></small></h5>
                               <h5>LIKES : <small id="like-count<%= post._id %>"><%= post.likes.length %></small><small class="text-muted" style="float:right;"><%= post.date %></small></h5>
