@@ -139,8 +139,23 @@ router.put('/:postId/like',auth,function(req,res,next){
        new: true
   }, function (err, post) {
       if(err) throw(err);
-      res.send(post);
+      User.findByIdAndUpdate(req.session.userid, {
+        $inc: {
+         "like_count":1
+       }
+      }, {
+           new: true
+      }, function (err, user) {
+          if(err) res.send(err);
+          res.send(user);
+      });
+
+
   });
+
+
+
+
 
 });
 
@@ -152,40 +167,51 @@ router.put('/:postId/unlike',auth,function(req,res,next){
   }, {
        new: true
   }, function (err, post) {
-      if(err) throw(err);
-      res.send(post);
+
+    User.findByIdAndUpdate(req.session.userid, {
+      $inc: {
+       "like_count":-1
+     }
+    }, {
+         new: true
+    }, function (err, user) {
+        if(err) res.send(err);
+        res.send(user);
+    });
+
+
   });
 
 });
 
-router.get('/:postId/checklike',auth,function(req,res,next){
-  Post.findById(req.params.postId, function(err,post){
-      if(err) throw(err);
-      if(post.likes.indexOf(req.session.userid)>=0)
-      res.send(true);
-      else {
-        res.send(false);
-      }
+// router.get('/:postId/checklike',auth,function(req,res,next){
+//   Post.findById(req.params.postId, function(err,post){
+//       if(err) throw(err);
+//       if(post.likes.indexOf(req.session.userid)>=0)
+//       res.send(true);
+//       else {
+//         res.send(false);
+//       }
+//
+// })
+//
+// });
 
-})
 
-});
-
-
-
-router.put('/:userlike',auth,function(req,res,next){
-  User.findByIdAndUpdate(req.session.userid, {
-    $set: {
-     "like_count": req.params.userlike
-   }
-  }, {
-       new: true
-  }, function (err, user) {
-      if(err) res.send(err);
-      res.send(user);
-  });
-
-});
+//
+// router.put('/:userlike',auth,function(req,res,next){
+//   User.findByIdAndUpdate(req.session.userid, {
+//     $set: {
+//      "like_count": req.params.userlike
+//    }
+//   }, {
+//        new: true
+//   }, function (err, user) {
+//       if(err) res.send(err);
+//       res.send(user);
+//   });
+//
+// });
 
 
 //export our router
