@@ -27,11 +27,11 @@
             <div class="alert alert-warning" role="alert" id="reputation">
               <h4><strong id="repuword"><%= like_count*10%></strong>&nbsp<small> REPUTATION</small></h4></div>
           </div>
-          <div class="badges col-sm-3">
+          <div  id="badges"class="badges col-sm-3">
             <%if(posts.length) {%>
             <div class="badgeitems">
               <!-- <div class="color-box " style="background-color: #FF850A;"></div> -->
-              <img src="/img/trash_hunter.png" height="50px" width="50px"/>
+              <img src="/img/trash_hunter.png" height="45px" width="45px"/>
               <div style="font-size:18px">Trash_Hunter</div>
             </div>
 
@@ -40,8 +40,8 @@
             <%if(like_count>10) {%>
             <div class="badgeitems">
               <!-- <div class="color-box " style="background-color: #52DE3F;"></div> -->
-              <img src="/img/ninja.png" height="50px" width="50px"/>
-              <div style="font-size:18px">Ninja</div>
+              <img src="/img/ninja.png" height="45px" width="45px" style="margin-top:-11%;"/>
+              <div style="font-size:18px" >Enviro_Ninja</div>
             </div>
             </br>
             </br>
@@ -49,8 +49,8 @@
             <%if(like_count>20) {%>
             <div class="badgeitems">
               <!-- <div class="color-box " style="background-color:#42DAD6;"></div> -->
-              <img src="/img/warrior.png" height="50px" width="50px"/>
-              <div style="font-size:18px">Warrior</div>
+              <img src="/img/warrior.png" height="45px" width="45px" style="margin-top:-11%;"/>
+              <div style="font-size:18px" >Green_Warrior</div>
             </div>
             <%}%>
             <%}%>
@@ -60,12 +60,15 @@
 
         <!-- main -->
         <div class="column col-sm-9" id="main">
-          <div>
-            <div class="goto" style="float: right; margin-right: 4%;margin-top: 1%"><a href="/logout" class="btn btn-default"><b>Logout</b></a> </div>
-            <div class="goto" style="float: right; margin-right: 3%;margin-top: 1%" id="issuebtn" ><a  href="/issues" class="btn btn-default"><b>Issue</b></a> </div>
-            <div class="goto" style="float: right; margin-right: 4%;margin-top: 1%"><a href="/timeline" class="btn btn-default"><b>Timeline</b></a> </div>
-           <div class="goto" style="float: right; margin-right: 3%;margin-top: 1%"><a href="/leaderboard" class="btn btn-default"><b>LB</b></a> </div>
+
+          
+            <div>
+            <div class="goto" style="margin-top: 1%;margin-right:2%;"><a href="/logout" class="btn btn-default"><b>Logout</b></a> </div>
+            <div class="goto" style="margin-top: 1%;margin-right:2%;" id="issuebtn" ><a  href="/issues" class="btn btn-default"><b>Issue</b></a> </div>
+            <div class="goto" style="margin-top: 1%;margin-right:2%;"><a href="/timeline" class="btn btn-default"><b>Timeline</b></a> </div>
+           <div class="goto" style="margin-top: 1%;margin-right:2%;"><a href="/leaderboard" class="btn btn-default"><b>Rank</b></a> </div>
           </div>
+
           <div class="padding">
             <div class="full col-sm-9">
               <div class="col-sm-12" id="featured">
@@ -133,7 +136,7 @@
                                 <% }else { %>
                                   <button id="like<%= post._id %>" class="like" onclick="<%=postid_add%>"><i class="fa fa-heart fa-2x" style="color:red;"></i></button>
                                   <% } %>
-                                <a target="_blank" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<%= post.description %>"data-size="large"><i class="fa fa-twitter fa-3x" style="color:#03a9f4" aria-hidden="true"></i></a>
+                                <a style="margin-left:50%;" target="_blank" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<%= post.description %>"data-size="large"><i class="fa fa-twitter fa-3x" style="color:#03a9f4" aria-hidden="true"></i></a>
 
 
 

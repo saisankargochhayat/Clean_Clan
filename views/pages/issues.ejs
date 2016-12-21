@@ -99,7 +99,6 @@
         <select name="email_to" id="email_to" name="email_to">
           <option value="Mayer">Mayer</option>
           <option value="Councillor">Councillor</option>
-          <!-- <option value=" Solved Challenge">Solved Challenge</option> -->
         </select>
       </div></h4>
       <input type="file" name="images" value="" multiple="true">
@@ -124,7 +123,7 @@
                   var data = new FormData($(this)[0]);
                   console.log(data);
                 $.ajax({
-                    url : '/issue/create',
+                    url : '/issues/create',
                     method:'POST',
                     data : data,
                     contentType:false,
@@ -142,7 +141,7 @@
                     },
                     error : function(xhr, status, error) {
                       console.log(error);
-                      $('#issuemsg').empty().append("<strong>" + error + "  error,<br> there might be insufficient Data</strong>");
+                      $('#issuemsg').empty().append("<strong>" + error + "  error,<br> There might be insufficient Data</strong>");
                       $('#issuemsg').addClass("alert alert-danger alert-dismissible");
                     }
                   });
