@@ -28,22 +28,32 @@
               <h4><strong id="repuword"><%= like_count*10%></strong>&nbsp<small> REPUTATION</small></h4></div>
           </div>
           <div class="badges col-sm-3">
+            <%if(posts.length) {%>
             <div class="badgeitems">
-              <div class="color-box " style="background-color: #FF850A;"></div>
-              <div style="font-size:18px">Badge_name1</div>
+              <!-- <div class="color-box " style="background-color: #FF850A;"></div> -->
+              <img src="/img/trash_hunter.png" height="50px" width="50px"/>
+              <div style="font-size:18px">Trash_Hunter</div>
+            </div>
+
+            </br>
+            </br>
+            <%if(like_count>10) {%>
+            <div class="badgeitems">
+              <!-- <div class="color-box " style="background-color: #52DE3F;"></div> -->
+              <img src="/img/ninja.png" height="50px" width="50px"/>
+              <div style="font-size:18px">Ninja</div>
             </div>
             </br>
             </br>
+            <%}%>
+            <%if(like_count>20) {%>
             <div class="badgeitems">
-              <div class="color-box " style="background-color: #52DE3F;"></div>
-              <div style="font-size:18px">Badge_name2</div>
+              <!-- <div class="color-box " style="background-color:#42DAD6;"></div> -->
+              <img src="/img/warrior.png" height="50px" width="50px"/>
+              <div style="font-size:18px">Warrior</div>
             </div>
-            </br>
-            </br>
-            <div class="badgeitems">
-              <div class="color-box " style="background-color:#42DAD6;"></div>
-              <div style="font-size:18px">Badge_name3</div>
-            </div>
+            <%}%>
+            <%}%>
           </div>
         </div>
         <!-- /sidebar -->
