@@ -16,7 +16,7 @@ html, body {
 
     display: inline-block;
   }
-  .badgeitems{margin-left: 140%;}
+  .badgeitems{margin-left: 230%;}
   .color-box {
     border-radius: 100%;
       width: 15px;
@@ -246,9 +246,6 @@ img.profileimg {
 .sidebar-prop  {
     text-align: center;
 }
-.badges{
-  margin-top: 10%;
-}
 .goldbad{
   color: gold;
 }
@@ -381,13 +378,7 @@ h3.user-timelime {
 }
 
 #container-floating:hover .nds{
-  
+
   animation: bounce-nds 0.1s linear;
   animation-fill-mode:  forwards;
 }
-
-
-
-
-
-
