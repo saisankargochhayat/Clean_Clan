@@ -20,7 +20,11 @@ router.get('/', auth, function(req, res, next) {
 User.find().sort({like_count:-1})
 .exec(function(err, user) {
   if(err) throw err;
-  res.send(user);
+  var render__data = {
+      user: user,
+      current_userid:req.session.userid,
+    }
+    res.render('./pages/leaderboard', render__data);
 
  });
 

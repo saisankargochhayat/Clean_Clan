@@ -26,6 +26,7 @@ var profile = require('./app/profile');
 var timeline = require('./app/timeline');
 var post = require('./app/post');
 var leaderboard =require('./app/leaderboard');
+var issues =require('./app/issues');
 //set static files(css or js or imgs)
 app.use(express.static(__dirname + "/public"));
 app.use('/uploads', serveIndex('public/uploads'));
@@ -54,6 +55,7 @@ app.use('/profile',profile);
 app.use('/timeline',timeline);
 app.use('/post',post)
 app.use('/leaderboard',leaderboard)
+app.use('/issues',issues)
 
 //start your server
 app.listen(port,function(){

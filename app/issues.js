@@ -31,6 +31,10 @@ var auth = function(req, res, next) {
     return res.redirect('/login');
 };
 
+router.get('/',auth,function(req, res, next) {
+  res.render('./pages/issues');
+});
+
 
 router.post('/create', auth, upload.array('images', 12), function(req, res, next) {
   res.send("Issue has been recorded")

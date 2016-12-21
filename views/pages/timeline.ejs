@@ -25,7 +25,9 @@
         <div class="column col-sm-12" id="main">
           <div>
             <div class="goto" style="float: right; margin-right: 4%;margin-top: 1%"><a href="/logout" class="btn btn-default"><b>Logout</b></a> </div>
+            <div class="goto" style="float: right; margin-right: 3%;margin-top: 1%" id="issuebtn" ><a class="btn btn-default"><b>Issue</b></a> </div>
             <div class="goto" style="float: right; margin-right: 4%;margin-top: 1%"><a href="/profile" class="btn btn-default"><b>Profile</b></a> </div>
+            <div class="goto" style="float: right; margin-right: 3%;margin-top: 1%"><a href="/leaderboard" class="btn btn-default"><b>LB</b></a> </div>
           </div>
           <div class="padding">
             <div class="full col-sm-9">
@@ -36,31 +38,6 @@
                   Featured
                 </div>
               </div>
-
-              <!--/top story-->
-              <!-- <div class="row">
-                    <div class="col-sm-11">
-                          <h3>This is Some Awesome Featured Content</h3>
-                          <div class="col-md-5 col-sm-12">
-                            <a title="Image 1">
-                              <img class="thumbnail img-responsive" id="image-1" src="/img/01.jpg">
-                          </a>
-                          </div>
-                          <div class="col-md-7 col-sm-12">
-                            <h4><span class="label label-danger" style="margin-bottom:10px">challenge</span></h4><h4>
-                            <h3 class="user-timelime" class="toUpper">Asutosh Hota</h3>
-                            <h4 class="description">DESCRIPTION : <small>This is a Pic about cleaning my locality.We had cleaned the locality on sunday by being inspired from ugly indian page.locality on sunday by being inspired from ugly indian page</small></h4>
-                            <h4 class="description">STAKE-HOLDERS : <small>Official locality,near by school,near campus</small></h4>
-                            <h5>Location : <small>adityapur,majhipura,ChandniChowk</small></h5>
-                            <h5>Likes : <small id="like-count">567</small><small class="text-muted" style="float:right;">1 hour ago</small></h5>
-                            <a href="#"><a href="#"><i class="fa fa-heart likebtn fa-2x" aria-hidden="true"></i></a></i></a>
-                        </div>
-                    </div>
-            <div class="hidden-sm hidden-xs hidden-md col-lg-1">
-              <a href="#" class="pull-right proimg"><img src="./img/01.jpg" class="img-circle"></a>
-          </div>
-      </div>
-      <hr> -->
               <!--/stories-->
               <% if(posts.length) { %>
 
@@ -99,8 +76,16 @@
                                 <button id="like<%= post._id %>" class="like" onclick="<%=postid_remove%>"><i class="fa fa-heart fa-2x " style="color:green;"></i></button>
                                 <% }else { %>
                                   <button id="like<%= post._id %>" class="like" onclick="<%=postid_add%>"><i class="fa fa-heart fa-2x" style="color:red;"></i></button>
-                                  <% } %>
+      <% } %>
+      <div class="col-md-3">
+                      <a target="_blank" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<%= post.description %>"data-size="large"><i class="fa fa-twitter fa-3x" style="color:#03a9f4" aria-hidden="true"></i></a>
+
+                  </div>
+
+
+
                       </div>
+
                       <%if(post.type_post=="Challenge" && post.author!=current_userid && post.solutions.length==0) {%>
 
                         <button id = "<%=post._id%>" data-placement="left" data-original-title="Create" data-toggle="modal" data-target="#myModal" class="btn btn-success solve_btn" style="margin-top:10px;">Accept </button>

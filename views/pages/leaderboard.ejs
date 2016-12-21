@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clean India App</title>
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+
+
+	</style>
+</head>
+<body>
+	<div>
+		<div class="goto" style="float: right; margin-right: 2%;margin-top: 1%"><a href="/logout" class="btn btn-default"><b>Logout</b></a> </div>
+		<div class="goto" style="float: right; margin-right: 2%;margin-top: 1%"><a href="/profile" class="btn btn-default"><b>Profile</b></a> </div>
+		<div class="goto" style="float: right; margin-right: 2%;margin-top: 1%"><a href="/leaderboard" class="btn btn-default"><b>LB</b></a> </div>
+		<div class="goto" style="float: right; margin-right: 2%;margin-top: 1%"><a href="/timeline" class="btn btn-default"><b>Timeline</b></a> </div>
+	</div>
+	<div style="margin-left: 10%;margin-right: 10%;" class="leaderbox">
+	<!-- <%=user.length%> -->
+		<table class="table">
+			<thead class="thead-inverse">
+				<tr style="height: 70px;padding-bottom: 30px">
+					<th><h2>Rank</h2></th>
+					<th><h2>Profile Image</h2></th>
+					<th><h2>Username</h2></th>
+					<th><h2>Reputation</h2></th>
+				</tr>
+			</thead>
+			<tbody>
+<% if(user.length) { %>
+<% for(i=1;i<user.length+1;i++){ use = user[i-1]; %>
+
+				<tr>
+					<th scope="row"><h1 style="margin-top: 21%;margin-left: 10%"><%=i%></h1></th>
+					<td><img src="<%=use.image%>" style="height: 90px;width:90px;border-radius: 100% ;margin-left: 30px;margin-top:1%"></td>
+					<td><h3 style="margin-top:10%"><%=use.name%></h3></td>
+					<td><h3 style="margin-left: 20%;margin-top:10%"><%=use.like_count*10%></h3></td>
+				</tr>
+
+
+
+<%}%>
+<%}%>
+
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>

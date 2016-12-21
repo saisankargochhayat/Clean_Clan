@@ -52,7 +52,9 @@
         <div class="column col-sm-9" id="main">
           <div>
             <div class="goto" style="float: right; margin-right: 4%;margin-top: 1%"><a href="/logout" class="btn btn-default"><b>Logout</b></a> </div>
+            <div class="goto" style="float: right; margin-right: 3%;margin-top: 1%" id="issuebtn" ><a  href="/issues" class="btn btn-default"><b>Issue</b></a> </div>
             <div class="goto" style="float: right; margin-right: 4%;margin-top: 1%"><a href="/timeline" class="btn btn-default"><b>Timeline</b></a> </div>
+           <div class="goto" style="float: right; margin-right: 3%;margin-top: 1%"><a href="/leaderboard" class="btn btn-default"><b>LB</b></a> </div>
           </div>
           <div class="padding">
             <div class="full col-sm-9">
@@ -121,6 +123,10 @@
                                 <% }else { %>
                                   <button id="like<%= post._id %>" class="like" onclick="<%=postid_add%>"><i class="fa fa-heart fa-2x" style="color:red;"></i></button>
                                   <% } %>
+                                <a target="_blank" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<%= post.description %>"data-size="large"><i class="fa fa-twitter fa-3x" style="color:#03a9f4" aria-hidden="true"></i></a>
+
+
+
                       </div>
                     </div>
 
