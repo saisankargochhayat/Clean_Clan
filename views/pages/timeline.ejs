@@ -103,7 +103,7 @@
                       </div>
                       <%if(post.type_post=="Challenge" && post.author!=current_userid && post.solutions.length==0) {%>
 
-                        <button id = "<%=post._id%>" data-placement="left" data-original-title="Create" data-toggle="modal" data-target="#myModal2" class="btn btn-success solve_btn" style="margin-top:10px;">Accept </button>
+                        <button id = "<%=post._id%>" data-placement="left" data-original-title="Create" data-toggle="modal" data-target="#myModal" class="btn btn-success solve_btn" style="margin-top:10px;">Accept </button>
                         <%}%>
 
 
@@ -173,24 +173,7 @@
           </div>
           <!-- /main -->
 
-          <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                  <h4 class="modal-title" id="myModalLabel">Post Your Solution</h4>
-                </div>
-                <div class="modal-body">
-                  <% include ./solveform %>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
-          </div>
+
 
 
 
@@ -202,10 +185,14 @@
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
-                  <h4 class="modal-title" id="myModalLabel">Post Your Work</h4>
+                  <h4 class="modal-title" id="myModalLabel">Post Your Solution</h4>
                 </div>
                 <div class="modal-body">
-                  <% include ./postform %>
+
+
+                  <% include ./solveform %>
+
+
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -214,16 +201,12 @@
             </div>
           </div>
 
-
-          <div id="container-floating">
-            <div class="nd5 nds" data-placement="left" data-original-title="Simone"></div>
-            <div id="floating-button" data-placement="left" data-original-title="Create" data-toggle="modal" data-target="#myModal">
-              <p><a class="plus" id="postbtn">+</a></p>
-              <img class="edit" src="/img/bt_compose2_1x.png">
-            </div>
-          </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+</div>
       <!-- script references -->
       <script src="/javascript/vendor/jquery/jquery.min.js"></script>
       <script src="/javascript/vendor/bootstrap.min.js"></script>
