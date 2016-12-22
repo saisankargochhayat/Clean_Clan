@@ -129,13 +129,13 @@
                               <h5>LOCATION : <small style="text-transform: capitalize;"><%= post.location%></small></h5>
                               <h5>LIKES : <small id="like-count<%= post._id %>"><%= post.likes.length %></small><small class="text-muted" style="float:right;"><%= post.date %></small></h5>
                               <% if(post.likes.indexOf(current_userid)>=0) { %>
-                                <a id="like<%= post._id %>" class="like" onclick="<%=postid_remove%>"><i class="fa fa-heart fa-2x " style="color:green;"></i></a>
+                                <a id="like<%= post._id %>" title="unlike" class="like" onclick="<%=postid_remove%>"><i class="fa fa-heart fa-2x " style="color:green;"></i></a>
                                 <% }else { %>
-                                  <a id="like<%= post._id %>" class="like" onclick="<%=postid_add%>"><i class="fa fa-heart fa-2x" style="color:red;"></i></a>
+                                  <a id="like<%= post._id %>"  title="like" class="like" onclick="<%=postid_add%>"><i class="fa fa-heart fa-2x" style="color:red;"></i></a>
                                   <% } %>
-                                <a style="margin-left:35.5%" target="_blank" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<%= post.description %>"data-size="large"><i class="fa fa-twitter fa-3x" style="color:#03a9f4" aria-hidden="true"></i></a>
+                                <a style="margin-left:60%" title="tweet" target="_blank" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<%= post.description %>"data-size="large"><i class="fa fa-twitter fa-3x" style="color:#03a9f4" aria-hidden="true"></i></a>
 
-                                <a href="/report"><i class="fa fa-2x fa-exclamation-circle" style="float: right;margin-top:2%;color: red" aria-hidden="true"></i></a>
+                                <!-- <a href="/report"><i class="fa fa-2x fa-exclamation-circle" style="float: right;margin-top:2%;color: red" aria-hidden="true"></i></a> -->
 
                       </div>
                     </div>

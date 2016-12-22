@@ -34,6 +34,17 @@
   box-sizing: border-box;
   font-size: 14px;
 }
+.form select {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
 .form textarea {
   font-family: "Roboto", sans-serif;
   outline: 0;
@@ -125,7 +136,7 @@ body {
   <div class="form">
     <form id="issueform" class="login-form" action="mailto:admin@example.com?subject=Report" method="POST" enctype="text/plain" style="margin-bottom: 10%">
       <div class="select-wrapper field" style="margin-bottom:15px;">
-        <label style="margin-right: 15%">State the problem:</label><br>
+        <label style="float: left;"><h4>State the problem:</h4></label><br>
 
         <select type="text" name="Reason is" id="Reason">
           <option value="It looks like a fake post">It looks like a fake post</option>

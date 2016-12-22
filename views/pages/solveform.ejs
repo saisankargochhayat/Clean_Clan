@@ -24,6 +24,17 @@
   box-sizing: border-box;
   font-size: 14px;
 }
+.form select {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 60%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
 .form button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
@@ -38,6 +49,7 @@
   transition: all 0.3 ease;
   cursor: pointer;
 }
+
 .form button:hover,.form button:active,.form button:focus {
   background: #43A047;
 }
@@ -97,7 +109,7 @@
       <input type="text" name="heading" value="" placeholder="Heading" id="headings"><br>
       <input type="text" name="description" value="" placeholder="Description" id="description"><br>
       <input type="text" name="stake_holders" value="" placeholder="Stake Holders" id="stakes"><br>
-      <h4>Type of Post:</h4>
+      <h4>Type:</h4>
       <div class="select-wrapper field" style="margin-bottom:15px;">
         <select name="type_post" id="type_post" name="type_post">
           <option value="Solved Challenge">Solved Challenge</option>

@@ -25,7 +25,7 @@
         <div class="column col-sm-12" id="main">
           <div>
             <div class="goto" style="float: right; margin-right: 2%;margin-top: 1%"><a href="/logout" class="btn btn-default"><b>Logout</b></a> </div>
-            <div class="goto" style="float: right; margin-right: 2%;margin-top: 1%" id="issuebtn" ><a class="btn btn-default"><b>Issue</b></a> </div>
+            <div class="goto" style="float: right; margin-right: 2%;margin-top: 1%" id="issuebtn" ><a href="/issues" class="btn btn-default"><b>Issue</b></a> </div>
             <div class="goto" style="float: right; margin-right: 2%;margin-top: 1%"><a href="/profile" class="btn btn-default"><b>Profile</b></a> </div>
             <div class="goto" style="float: right; margin-right: 2%;margin-top: 1%"><a href="/leaderboard" class="btn btn-default"><b>Rank</b></a> </div>
           </div>
@@ -35,7 +35,7 @@
               <!-- content -->
               <div class="col-sm-12" id="featured">
                 <div class="page-header text-muted">
-                  Featured
+                  Timeline
                 </div>
               </div>
               <!--/stories-->
@@ -73,14 +73,14 @@
                               <h5>LOCATION: <small style="text-transform: capitalize;"><%= post.location%></small></h5>
                               <h5>LIKES : <small id="like-count<%= post._id %>"><%= post.likes.length %></small><small class="text-muted" style="float:right;"><%= post.date %></small></h5>
                               <% if(post.likes.indexOf(current_userid)>=0) { %>
-                                <a id="like<%= post._id %>" class="like" onclick="<%=postid_remove%>"><i class="fa fa-heart fa-2x " style="color:green;"></i></a>
+                                <a id="like<%= post._id %>" title="unlike" class="like" onclick="<%=postid_remove%>"><i class="fa fa-heart fa-2x " style="color:green;"></i></a>
                                 <% }else { %>
-                                  <a id="like<%= post._id %>" class="like" onclick="<%=postid_add%>"><i class="fa fa-heart fa-2x" style="color:red;"></i></a>
+                                  <a id="like<%= post._id %>" title="like" class="like" onclick="<%=postid_add%>"><i class="fa fa-heart fa-2x" style="color:red;"></i></a>
       <% } %>
 
-                      <a style="margin-left:40%" target="_blank" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<%= post.description %>"data-size="large"><i class="fa fa-twitter fa-3x" style="color:#03a9f4" aria-hidden="true"></i></a>
+                      <a style="margin-left:40%" target="_blank" title="tweet" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<%= post.description %>"data-size="large"><i class="fa fa-twitter fa-3x" style="color:#03a9f4" aria-hidden="true"></i></a>
 
-                       <a href="/report"><i class="fa fa-2x fa-exclamation-circle" style="float: right;margin-top:2%;color: red" aria-hidden="true"></i></a>
+                       <a href="/report"><i class="fa fa-2x fa-exclamation-circle" title="report" style="float: right;margin-top:2%;color: red" aria-hidden="true"></i></a>
 
 
 

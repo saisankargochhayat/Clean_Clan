@@ -300,6 +300,7 @@
 		input[type="password"]:invalid,
 		input[type="email"]:invalid,
 		input[type="tel"]:invalid,
+		input[type="file"]:invalid,
 		select:invalid,
 		textarea:invalid {
 			box-shadow: none;
@@ -350,6 +351,7 @@
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
+	input[type="file"],
 	select {
 		height: 2.75em;
 	}

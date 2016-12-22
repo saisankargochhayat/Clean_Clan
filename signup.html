@@ -8,6 +8,26 @@
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
   </head>
+  <style type="text/css">
+    .fileContainer {
+    overflow: hidden;
+    position: relative;
+}
+
+.fileContainer [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+}
+  </style>
   <body class="is-loading">
       <!-- Wrapper -->
       <div id="wrapper" style="margin-top:10px;margin-bottom:10px;">
@@ -42,10 +62,9 @@
 
                 <input class="field"type="password" name="password" id="password" placeholder="Password" style="margin-bottom:38px;"/>
 
-                <input type="file" name="files" value="" id='image'>
-               <!--  <input style="margin-bottom:10px;" class="field"type="checkbox" id="human" name="human" /><label for="human">I'm a human</label> -->
-
-               <input style="margin-bottom:15px;" class="field" type="submit" value="GET STARTED" class="button" id="signbutton">
+               <label class="fileContainer">Click here to upload profile photo<input type="file" name="files" value="" id='image' onchange="readURL(this);"></label><br>
+               <img  id="propic1" al><br><br>
+               <input style="margin-bottom:15px;" class="field" type="submit" value="GET STARTED" class="button" id="signbutton" accept="image/gif,image/jpeg,image/png">
                  <p style="margin-bottom:15px;" class="signmsg"  ></p>
             </form>
           </section>
@@ -64,5 +83,19 @@
       </script>
     <script type="text/javascript" src="/javascript/jquery.js"></script>
     <script type="text/javascript" src="/javascript/signupf.js"></script>
+    <script type="text/javascript">
+      function readURL(input){
+        if(input.files && input.files[0]){
+          var reader = new FileReader();
+          reader.onload = function(e){
+            $('#propic1')
+              .attr('src',e.target.result)
+              .width(100)
+              .height(100);
+          }
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+    </script>
   </body>
 </html>
