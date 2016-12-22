@@ -45,7 +45,7 @@
   box-sizing: border-box;
   font-size: 14px;
 }
-.form button {
+/*.form button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
@@ -61,7 +61,7 @@
 }
 .form button:hover,.form button:active,.form button:focus {
   background: #43A047;
-}
+}*/
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
@@ -123,18 +123,26 @@ body {
  <body>
   <div class="login-page">
   <div class="form">
-    <form id="issueform" class="login-form" method="post" action="/issues/create" enctype="multipart/form-data" style="margin-bottom: 10%">
-      <textarea type="textarea" name="issue" value="" placeholder="Issue" id="issuetext"></textarea>
-      
+    <form id="issueform" class="login-form" action="mailto:admin@example.com?subject=Report" method="POST" enctype="text/plain" style="margin-bottom: 10%">
       <div class="select-wrapper field" style="margin-bottom:15px;">
-        <label style="margin-right: 15%">Email to:</label><select name="email_to" id="email_to" name="email_to">
-          <option value="Mayer">Mayer</option>
-          <option value="Councillor">Councillor</option>
+        <label style="margin-right: 15%">State the problem:</label><br>
+
+        <select type="text" name="Reason is" id="Reason">
+          <option value="It looks like a fake post">It looks like a fake post</option>
+          <option value="The place was already cleaned">The place was already cleaned</option>
+          <option value="Does not belong to this locality">Does not belong to this locality</option>
+          <option value="The picture is morphed">The picture is morphed</option>
         </select>
-      </div>
-      <input type="file" name="images" value="" multiple="true">
-      <button id="issuebtn" type="submit" name="submit" value="Submit">post</button>
-    </form>
+      </div><br>
+      <textarea type="textarea" name="Any other reason" placeholder="Any other reason" id="issuetext"></textarea><br>
+<button id="issuebtn"  type="submit" class="btn btn-primary"> Mail to the Admin</button> 
+
+      </form>
+           
+    
+
+
+
     <p class="issuemsg" id="issuemsg"></p>
   </div>
 </div>
@@ -147,35 +155,13 @@ body {
   <script type="text/javascript">
 
         $(document).ready(function() {
-             $('#issueform').submit(function(event) {
-                 event.preventDefault()
-                 var n = $(document.getElementById('issuebtn'))
-                  var s = document.URL
-                  var data = new FormData($(this)[0]);
-                  console.log(data);
-                $.ajax({
-                    url : '/issues/create',
-                    method:'POST',
-                    data : data,
-                    contentType:false,
-                    processData:false,
-                    success:function(data) {
-                      console.log(data);
-                      if (data == "Issue has been recorded") {
-                        $('#issuemsg').empty().append("<strong>Issue has been recorded</strong> ");
-                        $('#issuemsg').addClass("alert alert-success alert-dismissible");
-                        setTimeout(function() {
-                          s = document.URL;
-                          window.location.href = s.substr(0, s.lastIndexOf('/')) + '/profile';
-                        }, 2500);
-                      }
-                    },
-                    error : function(xhr, status, error) {
-                      console.log(error);
-                      $('#issuemsg').empty().append("<strong>" + error + "  error,<br> there might be insufficient Data</strong>");
-                      $('#issuemsg').addClass("alert alert-danger alert-dismissible");
-                    }
-                  });
+             $('#issuebtn').click(function(event) {
+                  setTimeout(function() {
+              s = document.URL;
+              window.location.href = s.substr(0, s.lastIndexOf('/')) + '/profile';
+            }, 2500);
+
+                  
              });
         });
 
