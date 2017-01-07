@@ -9,14 +9,19 @@ html, body {
        /*box-sizing: border-box;*/
 }
 
-
-
 @media (min-width:786px) {
+
+  .goto{
+    float: right;
+    margin-right: 1%;
+  }
   .badges{
 
     display: inline-block;
   }
-  .badgeitems{margin-left: 140%;}
+  .badgeitems{
+
+    margin-left: 230%;}
   .color-box {
     border-radius: 100%;
       width: 15px;
@@ -29,6 +34,10 @@ html, body {
       margin-left: 52px;
   }
 }
+
+
+
+
 @media (max-width: 480px) {
   .color-box {
     border-radius: 100%;
@@ -40,6 +49,11 @@ html, body {
       left: 5px;
       top: 5px;
 }
+.goto{
+  float: left;
+}
+
+
 }
 
 
@@ -94,6 +108,7 @@ a {
     overflow: auto;
     *zoom:1;
 }
+
 
 .column .padding {
     padding: 20px;
@@ -246,9 +261,6 @@ img.profileimg {
 .sidebar-prop  {
     text-align: center;
 }
-.badges{
-  margin-top: 10%;
-}
 .goldbad{
   color: gold;
 }
@@ -381,13 +393,7 @@ h3.user-timelime {
 }
 
 #container-floating:hover .nds{
-  
+
   animation: bounce-nds 0.1s linear;
   animation-fill-mode:  forwards;
 }
-
-
-
-
-
-
