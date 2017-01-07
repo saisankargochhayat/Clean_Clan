@@ -53,7 +53,8 @@ router.post('/', upload.array('files', 12), function(req, res, next) {
         password: req.body.password,
         city: req.body.city,
         image: req.files[0].path,
-				like_count:0
+				like_count:0,
+        user_details:req.body.user_details,
       });
       User.findOne({
         email: new_user.email

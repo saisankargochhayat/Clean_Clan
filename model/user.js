@@ -10,6 +10,7 @@ var userSchema = new Schema({
   password:String,
   image : String,
   like_count:Number,
+  user_details:String,
 },{ collection:'user'});
 
 userSchema.pre('save', function(next) {

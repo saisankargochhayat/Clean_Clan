@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Clean India App</title>
+  <meta name="generator" content="Bootply" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="/css/strap.min.css" rel="stylesheet">
+  <link href="/css/font-awesome.min.css" rel="stylesheet">
+
+  <link href="/css/profile.css" rel="stylesheet">
+</head>
+
+
+<body>
+<script type="text/javascript">
+  var solve_id = ""
+</script>
+  <div class="wrapper">
+    <div class="box">
+      <div class="row">
+
+        <!-- main -->
+        <div class="column col-sm-12" id="main">
+          <div>
+            <div class="goto" style="float: right; margin-right: 2%;margin-top: 1%"><a href="/logout" class="btn btn-default"><b>Logout</b></a> </div>
+            <div class="goto" style="float: right; margin-right: 2%;margin-top: 1%" id="issuebtn" ><a href="/issues" class="btn btn-default"><b>Issue</b></a> </div>
+            <div class="goto" style="float: right; margin-right: 2%;margin-top: 1%"><a href="/profile" class="btn btn-default"><b>Profile</b></a> </div>
+            <div class="goto" style="float: right; margin-right: 2%;margin-top: 1%"><a href="/leaderboard" class="btn btn-default"><b>Rank</b></a> </div>
+          </div>
+          <div class="padding">
+            <div class="full col-sm-9">
+
+              <!-- content -->
+              <div class="col-sm-12" id="featured">
+                <div class="page-header text-muted">
+                  Timeline
+                </div>
+              </div>
+              <!--/stories-->
+              <% if(posts.length) { %>
+
+                <% for(i=1;i<posts.length+1;i++){ post = posts[i-1]
+        postid_remove = "remove_like('"+post._id+"');";
+        postid_add = "like_add('"+post._id+"');";
+        %>
+                  <div class="row">
+
+                    <div class="col-sm-11">
+                      <h3><%= post.heading %></h3>
+                      <div class="col-md-5 col-sm-12">
+                        <a title="Image <%=i%>">
+                        <img class="thumbnail img-responsive" id="image-<%=i%>" src="<%= post.image_before %>">
+                    </a>
+                      </div>
+                      <div class="col-md-7 col-sm-12">
+                        <% if(post.type_post=="Challenge") {%>
+                          <h4><span class="label label-danger"><%=post.type_post%></span></h4>
+                          <%}  else {%>
+                            <h4><span class="label label-success"><%=post.type_post%></span></h4>
+                            <%}%>
+
+                            <% if(post.type_post=="Challenge" && post.solutions.length>0) {%>
+                              <h4 class="description">Has been Solved by:<small style="text-transform: capitalize;"><%= post.solutions_user_name %></small></h4>
+                              <%}%>
+                              <% if(post.type_post=="Solved Challenge") {%>
+                                <h4 class="description">Challenged By:<small style="text-transform: capitalize;"><%= post.challenge_user_name %></small></h4>
+                                <%}%>
+                              <h4 class="description">POSTED BY: <small style="text-transform: capitalize;"><%= post.author_name %></small></h4>
+                              <h4 class="description">DESCRIPTION : <small style="text-transform: capitalize;"><%= post.description %></small></h4>
+                              <h4 class="description">STAKE-HOLDERS : <small style="text-transform: capitalize;"><%= post.stake_holders %></small></h4>
+                              <h5>LOCATION: <small style="text-transform: capitalize;"><%= post.location%></small></h5>
+                              <h5>LIKES : <small id="like-count<%= post._id %>"><%= post.likes.length %></small><small class="text-muted" style="float:right;"><%= post.date %></small></h5>
+                              <% if(post.likes.indexOf(current_userid)>=0) { %>
+                                <a id="like<%= post._id %>" title="unlike" class="like" onclick="<%=postid_remove%>"><i class="fa fa-heart fa-2x " style="color:green;"></i></a>
+                                <% }else { %>
+                                  <a id="like<%= post._id %>" title="like" class="like" onclick="<%=postid_add%>"><i class="fa fa-heart fa-2x" style="color:red;"></i></a>
+      <% } %>
+
+                      <a style="margin-left:40%" target="_blank" title="tweet" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<%= post.description %>"data-size="large"><i class="fa fa-twitter fa-3x" style="color:#03a9f4" aria-hidden="true"></i></a>
+<%if(current_userid!=post.author){%>
+                       <a href="/report"><i class="fa fa-2x fa-exclamation-circle" title="report" style="float: right;margin-top:2%;color: red" aria-hidden="true"></i></a>
+<%}%>
+
+
+                      </div>
+
+                      <%if(post.type_post=="Challenge" && post.author!=current_userid && post.solutions.length==0) {%>
+
+                        <a id = "<%=post._id%>" data-placement="left" data-original-title="Create" data-toggle="modal" data-target="#myModal" class="btn btn-success solve_btn" style="margin-top:10px;">Accept </a>
+                        <%}%>
+
+
+
+                    </div>
+                    <div class="hidden-sm hidden-xs hidden-md col-lg-1">
+                      <a href="#" class="pull-right proimg"><img src="<%= post.author_image %>" class="img-circle"></a>
+                    </div>
+
+                  </div>
+                  <%if(post.type_post=="Solution" || post.type_post=="Solved Challenge") { %>
+                  <div class="hidden" id="img-repo">
+                    <div class="item" id="image-<%=i%>">
+                      <img class="thumb img-responsive" title="Before" src="<%= post.image_before %>">
+                    </div>
+
+                      <div class="item" id="image-<%=i%>">
+                        <img class="thumb img-responsive" title="After" src="<%= post.image_after %>">
+                      </div>
+                    <%}else{%>
+                      <div class="hidden" id="img-repo">
+                        <div class="item" id="image-<%=i%>">
+                          <img class="thumb img-responsive" title="Challenge To Clean This" src="<%= post.image_before %>">
+                        </div>
+                      <%}%>
+                        </div>
+
+
+
+                    <div class="row divider">
+                      <div class="col-sm-12">
+                        <hr>
+                      </div>
+
+                      <% } %>
+                        <% } %>
+                          <!-------------------------------------------------------------------------------------------->
+
+                          <div class="modal" id="modal-gallery" role="dialog">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button class="close" type="button" data-dismiss="modal">×</button>
+                                  <h3 class="modal-title"></h3>
+                                </div>
+                                <div class="modal-body">
+                                  <div id="modal-carousel" class="carousel">
+                                    <div class="carousel-inner">
+                                    </div>
+
+                                    <a class="carousel-control left" style="margin-top: 25%" href="#modal-carousel" data-slide="prev"><i class="fa  fa-2x fa-chevron-left"></i></a>
+                                    <a class="carousel-control right" style="margin-top: 25.5%" href="#modal-carousel" data-slide="next"><i class="fa fa-2x fa-chevron-right"></i></a>
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button class="btn btn-primary" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+                    </div>
+                    <!-- /col-9 -->
+            </div>
+            <!-- /padding -->
+          </div>
+          <!-- /main -->
+
+
+
+
+
+
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">Post Your Solution</h4>
+                </div>
+                <div class="modal-body">
+
+
+                  <% include ./solveform %>
+
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+      <!-- script references -->
+      <script src="/javascript/vendor/jquery/jquery.min.js"></script>
+      <script src="/javascript/vendor/bootstrap.min.js"></script>
+      <script type="text/javascript" src="/javascript/vendor/freelancer.js"></script>
+      <script src="/javascript/likesf.js"></script>
+      <script>
+      $(document).on("click",".solve_btn",function(){
+        solve_id = this.id;
+
+      });
+      </script>
+</body>
+
+</html>

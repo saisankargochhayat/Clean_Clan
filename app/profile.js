@@ -37,6 +37,7 @@ router.get('/', auth, function(req, res, next) {
             image: user.image,
             like_count: user.like_count,
             posts: posts,
+            user_details:user.user_details,
             current_userid: req.session.userid,
             author: user._id.toString()
           }

@@ -37,7 +37,12 @@ router.get('/',auth,function(req, res, next) {
 
 
 router.post('/create', auth, upload.array('images', 12), function(req, res, next) {
-  res.send("Issue has been recorded")
+  if(!req.body.email_to || !req.body.issue ||!req.files){
+      res.status(502).send('Insufficient field values');
+    }else {
+        res.send("Issue has been recorded");
+    }
+
 });
 
 //export our router

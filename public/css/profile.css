@@ -1,5 +1,4 @@
 /* move special fonts to HTML head for better performance */
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600,700');
 
 
 /* custom template */
@@ -19,9 +18,9 @@ html, body {
 
     display: inline-block;
   }
-  .badgeitems{
 
-    margin-left: 230%;}
+  .badgeitems{margin-left: 230%;}
+
   .color-box {
     border-radius: 100%;
       width: 15px;
@@ -120,7 +119,7 @@ a {
     position: absolute;
     right: 0;
     top: 0;
-    background-image:url('../img/bg.jpg');
+    background-image:url('../img/log out.jpg');
     background-size:cover;
     background-attachment:fixed;
 }

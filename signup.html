@@ -8,14 +8,34 @@
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
   </head>
+  <style type="text/css">
+    .fileContainer {
+    overflow: hidden;
+    position: relative;
+}
+
+.fileContainer [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+}
+  </style>
   <body class="is-loading">
       <!-- Wrapper -->
       <div id="wrapper" style="margin-top:10px;margin-bottom:10px;">
         <!-- Main -->
           <section class="main" style="margin-top: -2%;">
             <header>
-              <span class="avatar"><img src="img/avatar.jpg" alt=""></span>
-              <h1 style="margin-top: 2%">CLEAN INDIA WEB-APP</h1>
+              <span class="avatar"><img src="img/profile.png" style="height:100px;width:100px" alt=""></span>
+              <h1 style="margin-top: 2%">CLEAN_CLAN</h1>
             </header>
             <hr>
             <h2 style="margin-top: -2%">JOIN US!</h2>
@@ -28,6 +48,7 @@
 
                 <input class="field" type="email" name="email" id="email" placeholder="email@example.com" style="margin-bottom:15px;"/>
 
+                <textarea type="textarea" name="user_details" placeholder="User Details" id="issuetext"></textarea><br>
 
                 <div class="select-wrapper field" style="margin-bottom:15px;">
                   <select name="city" id="city" name="city">
@@ -41,10 +62,9 @@
 
                 <input class="field"type="password" name="password" id="password" placeholder="Password" style="margin-bottom:38px;"/>
 
-                <input type="file" name="files" value="" id='image'>
-               <!--  <input style="margin-bottom:10px;" class="field"type="checkbox" id="human" name="human" /><label for="human">I'm a human</label> -->
-
-               <input style="margin-bottom:15px;" class="field" type="submit" value="GET STARTED" class="button" id="signbutton">
+               <label class="fileContainer">Click here to upload profile photo<input type="file" name="files" value="" id='image' onchange="readURL(this);"></label><br>
+               <img  id="propic1" al><br><br>
+               <input style="margin-top:15px;" class="field" type="submit" value="SIGN UP" class="button" id="signbutton" accept="image/gif,image/jpeg,image/png">
                  <p style="margin-bottom:15px;" class="signmsg"  ></p>
             </form>
           </section>
@@ -63,5 +83,19 @@
       </script>
     <script type="text/javascript" src="/javascript/jquery.js"></script>
     <script type="text/javascript" src="/javascript/signupf.js"></script>
+    <script type="text/javascript">
+      function readURL(input){
+        if(input.files && input.files[0]){
+          var reader = new FileReader();
+          reader.onload = function(e){
+            $('#propic1')
+              .attr('src',e.target.result)
+              .width(100)
+              .height(100);
+          }
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+    </script>
   </body>
 </html>

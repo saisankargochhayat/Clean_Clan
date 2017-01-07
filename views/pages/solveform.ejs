@@ -1,0 +1,174 @@
+
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>Clean India App</title>
+ </head>
+ <style type="text/css">
+ 	@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form select {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 60%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
+}
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.container .info {
+  margin: 50px auto;
+  text-align: center;
+}
+.container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+.container .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+}
+.container .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+.container .info span .fa {
+  color: #EF3B3A;
+}
+
+
+ </style>
+ <body>
+ 	<div class="login-page">
+  <div class="form">
+    <form id="solveform" class="login-form" method="post" enctype="multipart/form-data" style="margin-bottom: 10%">
+      <input type="text" name="location" value="" placeholder="Location" id="loc"><br>
+      <input type="text" name="heading" value="" placeholder="Heading" id="headings"><br>
+      <input type="text" name="description" value="" placeholder="Description" id="description"><br>
+      <input type="text" name="stake_holders" value="" placeholder="Stake Holders" id="stakes"><br>
+      <h4>Type:</h4>
+      <div class="select-wrapper field" style="margin-bottom:15px;">
+        <select name="type_post" id="type_post" name="type_post">
+          <option value="Solved Challenge">Solved Challenge</option>
+          <!-- <option value=" Solved Challenge">Solved Challenge</option> -->
+        </select>
+      </div>
+      <input type="file" name="images" value="" multiple="true">
+      <!-- <input type="submit" name="submit" value="Submit"> -->
+      <button id="postbtn" type="submit" name="submit" value="Submit">post</button>
+    </form>
+    <p class="postmsg" id="postmsg"></p>
+  </div>
+</div>
+<script src="../javascript/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/javascript/jquery.js"></script>
+  <script type="text/javascript" src="/javascript/loginf.js"></script>
+  <script type="text/javascript">
+
+        $(document).ready(function() {
+             $('#solveform').submit(function(event) {
+                 event.preventDefault()
+                 var n = $(document.getElementById('postbtn'))
+                  var s = document.URL
+                  var data = new FormData($(this)[0]);
+                  console.log(solve_id);
+                $.ajax({
+                    url : '/post/'+solve_id+'/solve',
+                    method:'POST',
+                    data : data,
+                    contentType:false,
+                    processData:false,
+                    success:function(data) {
+                      console.log(data);
+                      if(data=="Exceeds file limit")
+                      {
+                        $('#postmsg').empty().append("<strong>Exceeds file limit,You can upload only one  photo for Challenge & two for Solution/Solved Challenge</strong>");
+                        $('#postmsg').addClass("alert alert-danger alert-dismissible");
+                      }
+                      if (data == "Post saved succesfully") {
+                        $('#postmsg').empty().append("<strong>Post saved succesfully</strong> ");
+                        $('#postmsg').addClass("alert alert-success alert-dismissible");
+                        setTimeout(function() {
+                          s = document.URL;
+                          window.location.href = s.substr(0, s.lastIndexOf('/')) + '/profile';
+                        }, 2500);
+                      }
+                    },
+                    error : function(xhr, status, error) {
+                      console.log(error);
+                      $('#postmsg').empty().append("<strong>" + error + "  error,<br> there might be insufficient Data</strong>");
+                     $('#postmsg').addClass("alert alert-danger alert-dismissible");
+                    }
+                  });
+             });
+        });
+
+
+ </script>
+ </body>
+ </html>
