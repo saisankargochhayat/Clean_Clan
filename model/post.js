@@ -1,6 +1,18 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var ObjectId = mongoose.Types.ObjectId;
+
+
+var commentSchema = new Schema({
+  comment: { type: String, required: true },
+  author: { type: String, required: true }
+}, {
+  timestamps: true
+})
+
+
+
+
 var postSchema = new Schema({
   date: { type: Date, default: Date.now },
   heading : String,
@@ -20,7 +32,10 @@ var postSchema = new Schema({
   //this stores post id of solutions to this challenge
   solutions : { type: String, default: "" },
     //this stores name of solver of this challenge
-  solutions_user_name:String
+  solutions_user_name:String,
+  comments: [commentSchema]
 },{collection:'post'})
+
+
 var Post = mongoose.model('Post',postSchema);
 module.exports = Post;
