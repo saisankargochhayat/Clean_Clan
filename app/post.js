@@ -207,7 +207,7 @@ router.put('/:postId/like',auth,function(req,res,next){
        new: true
   }, function (err, post) {
       if(err) throw(err);
-      User.findByIdAndUpdate(req.session.userid, {
+      User.findByIdAndUpdate(post.author.toString(), {
         $inc: {
          "like_count":1
        }
@@ -236,7 +236,7 @@ router.put('/:postId/unlike',auth,function(req,res,next){
        new: true
   }, function (err, post) {
 
-    User.findByIdAndUpdate(req.session.userid, {
+    User.findByIdAndUpdate(post.author.toString(), {
       $inc: {
        "like_count":-1
      }

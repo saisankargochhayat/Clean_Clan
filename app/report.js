@@ -19,7 +19,11 @@ router.get('/',function(req, res, next) {
 });
 
 router.post('/create',function(req, res, next) {
-  res.send("report has been sent")
+  if(!req.body.Reason){
+      res.status(502).send('Insufficient field values');
+    }else {
+        res.send("Issue has been recorded");
+    }
 });
 
 

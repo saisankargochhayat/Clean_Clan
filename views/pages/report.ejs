@@ -119,14 +119,7 @@
   color: #EF3B3A;
 }
 body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
+  background: linear-gradient(to left, rgba(51, 156, 32, 0.95), #f38507);
 }
 
 
@@ -138,19 +131,19 @@ body {
       <div class="select-wrapper field" style="margin-bottom:15px;">
         <label style="float: left;"><h4>State the problem:</h4></label><br>
 
-        <select type="text" name="Reason is" id="Reason">
+        <select type="text" name="Reason" id="Reason">
           <option value="It looks like a fake post">It looks like a fake post</option>
           <option value="The place was already cleaned">The place was already cleaned</option>
           <option value="Does not belong to this locality">Does not belong to this locality</option>
           <option value="The picture is morphed">The picture is morphed</option>
         </select>
       </div><br>
-      <textarea type="textarea" name="Any other reason" placeholder="Any other reason" id="issuetext"></textarea><br>
-<button id="issuebtn"  type="submit" class="btn btn-primary"> Mail to the Admin</button> 
+      <textarea type="textarea" name="other_reason" placeholder="Any other reason" id="issuetext"></textarea><br>
+<button id="issuebtn"  type="submit" class="btn btn-primary"> Mail to the Admin</button>
 
       </form>
-           
-    
+
+
 
 
 
@@ -172,7 +165,7 @@ body {
               window.location.href = s.substr(0, s.lastIndexOf('/')) + '/profile';
             }, 2500);
 
-                  
+
              });
         });
 

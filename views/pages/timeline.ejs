@@ -13,6 +13,7 @@
   <link href="/css/profile.css" rel="stylesheet">
 </head>
 
+
 <body>
 <script type="text/javascript">
   var solve_id = ""
@@ -79,9 +80,9 @@
       <% } %>
 
                       <a style="margin-left:40%" target="_blank" title="tweet" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<%= post.description %>"data-size="large"><i class="fa fa-twitter fa-3x" style="color:#03a9f4" aria-hidden="true"></i></a>
-
+<%if(current_userid!=post.author){%>
                        <a href="/report"><i class="fa fa-2x fa-exclamation-circle" title="report" style="float: right;margin-top:2%;color: red" aria-hidden="true"></i></a>
-
+<%}%>
 
 
                       </div>

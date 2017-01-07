@@ -119,14 +119,7 @@
   color: #EF3B3A;
 }
 body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
+  background: linear-gradient(to left, rgba(51, 156, 32, 0.95), #f38507);
 }
 
 
@@ -136,7 +129,7 @@ body {
   <div class="form">
     <form id="issueform" class="login-form" method="post" action="/issues/create" enctype="multipart/form-data" style="margin-bottom: 10%">
       <textarea type="textarea" name="issue" value="" placeholder="Issue" id="issuetext"></textarea>
-      
+
       <div class="select-wrapper field" style="margin-bottom:15px;">
         <label style="margin-right: 15%">Email to:</label><select name="email_to" id="email_to" name="email_to">
           <option value="Mayer">Mayor</option>
