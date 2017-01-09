@@ -25,7 +25,7 @@ if( validateEmail($("#email").val())) {
             window.location.href = s.substr(0, s.lastIndexOf('/')) + '/signup';
           }, 2500);
         }
-        if (data == "Success") {
+        if (data[0] == "Success") {
           s = document.URL;
           window.location.href = s.substr(0, s.lastIndexOf('/')) + '/profile';
         }

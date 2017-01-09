@@ -43,7 +43,10 @@ router.post('/',function(req,res){
 							req.session.name=user.name;
 							console.log(req.session.userid + " is the id");
 							console.log(req.session.userimage + " is the image");
-							res.send("Success");
+							response={};
+							response[0]="Success";
+							response[1]= user._id;
+							res.send(response);
 						}
 						else {
 							res.send("wrong password")
