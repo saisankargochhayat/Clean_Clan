@@ -2,8 +2,73 @@ var express = require('express');
 var path = require('path');
 var User = require('../model/user');
 var multer = require('multer');
+var mongoose = require('mongoose');
+var nev =require('../app/emailverify')(mongoose);
 
 
+//email-verification
+//////////////////////////////////////////////////////////////////////////////
+mongoose.connect('mongodb://localhost/tcs');
+nev.configure({
+  persistentUserModel: User,
+  expirationTime: 600, // 10 minutes
+
+  verificationURL: 'http://localhost:3000/signup/email-verification/${URL}',
+  transportOptions: {
+    service: 'Gmail',
+    auth: {
+      user: 'abhisinghs359@gmail.com',
+      pass: 'mypetname'
+    }
+  },
+
+  // hashingFunction: myHasher,
+  // passwordFieldName: 'pw',
+}, function(err, options) {
+  if (err) {
+    console.log(err);
+    return;
+  }
+
+  console.log('configured: ' + (typeof options === 'object'));
+});
+
+nev.generateTempUserModel(User, function(err, tempUserModel) {
+  if (err) {
+    console.log(err);
+    return;
+  }
+
+  console.log('generated temp user model: ' + (typeof tempUserModel === 'function'));
+});
+
+
+// Express stuff =========================
+// app.use(bodyParser.urlencoded());
+// app.get('/', function(req, res) {
+//   res.sendFile('index.html', {
+//     root: __dirname
+//   });
+// });
+//
+// app.post('/', function(req, res) {
+//   var email = req.body.email;
+//
+//   // register button was clicked
+//   if (req.body.type === 'register') {
+//     var pw = req.body.pw;
+//     var newUser = new User({
+//       email: email,
+//       pw: pw
+//     });
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
 //create our router object
 var router = express.Router();
 var bcrypt = require('bcrypt');
@@ -47,7 +112,8 @@ router.post('/', upload.array('files', 12), function(req, res, next) {
     if (!req.body.name || !req.body.email || !req.body.city || !req.body.password) {
       res.status(502).send('Insufficient field values');
     } else {
-        var new_user = new User({
+             var email=req.body.email;
+        var newUser = new User({
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
@@ -56,33 +122,115 @@ router.post('/', upload.array('files', 12), function(req, res, next) {
 				like_count:0,
         user_details:req.body.user_details,
       });
-      User.findOne({
-        email: new_user.email
-      }, function(err, user) {
+      // User.findOne({
+      //   email: new_user.email
+      // }, function(err, user) {
+      //   if (err) {
+      //     console.log(err);
+      //     res.send(err);
+      //   } else {
+      //     if (user) {
+      //       console.log("Step 1");
+      //       // console.log(user);
+      //       res.send("email already registered")
+      //     } else {
+      //       new_user.save(function(err, user) {
+      //         if (err) {
+      //           console.log(err);
+      //           res.send(err);
+      //         } else {
+      //           res.send("User succesfully saved !");
+      //         }
+      //       });
+      //     }
+      //   }
+      // });
+
+
+      nev.createTempUser(newUser, function(err, existingPersistentUser, newTempUser) {
         if (err) {
-          console.log(err);
-          res.send(err);
-        } else {
-          if (user) {
-            console.log("Step 1");
-            // console.log(user);
-            res.send("email already registered")
-          } else {
-            new_user.save(function(err, user) {
-              if (err) {
-                console.log(err);
-                res.send(err);
-              } else {
-                res.send("User succesfully saved !");
-              }
+          return res.status(404).send('ERROR: creating temp user FAILED');
+        }
+
+        // user already exists in persistent collection
+        if (existingPersistentUser) {
+          return res.json({
+            msg: 'You have already signed up and confirmed your account. Did you forget your password?'
+          });
+        }
+
+        // new user created
+        if (newTempUser) {
+          var URL = newTempUser[nev.options.URLFieldName];
+
+          nev.sendVerificationEmail(email, URL, function(err, info) {
+            if (err) {
+              return res.status(404).send('ERROR: sending verification email FAILED');
+            }
+            res.json({
+              msg: 'An email has been sent to you. Please check it to verify your account.',
+              info: info
             });
-          }
+          });
+
+        // user already exists in temporary collection!
+        } else {
+          res.json({
+            msg: 'You have already signed up. Please check your email to verify your account.'
+          });
         }
       });
+
+    // resend verification button was clicked
+    // }
+    // else {
+    //   nev.resendVerificationEmail(email, function(err, userFound) {
+    //     if (err) {
+    //       return res.status(404).send('ERROR: resending verification email FAILED');
+    //     }
+    //     if (userFound) {
+    //       res.json({
+    //         msg: 'An email has been sent to you, yet again. Please check it to verify your account.'
+    //       });
+    //     } else {
+    //       res.json({
+    //         msg: 'Your verification code has expired. Please sign up again.'
+    //       });
+    //     }
+    //   });
+    // }
+ // });
+
+
     }
   }
 
 });
+
+// user accesses the link that is sent
+router.get('/email-verification/:URL', function(req, res) {
+  var url = req.params.URL;
+
+  nev.confirmTempUser(url, function(err, user) {
+    if (user) {
+      nev.sendConfirmationEmail(user.email, function(err, info) {
+        if (err) {
+          return res.status(404).send('ERROR: sending confirmation email FAILED');
+        }
+        res.json({
+          msg: 'CONFIRMED ho gaya!',
+          info: info
+        });
+      });
+
+
+    } else {
+      return res.status(404).send('ERROR: confirming temp user FAILED');
+    }
+  });
+});
+
+
 
 router.get('/list', function(req, res) {
   User.find(function(err, users) {
