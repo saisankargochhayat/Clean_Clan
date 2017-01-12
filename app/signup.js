@@ -129,7 +129,9 @@ router.post('/', upload.array('files', 12), function(req, res, next) {
 
         // user already exists in persistent collection
         if (existingPersistentUser) {
-          res.send("email already registered")
+           console.log("user exists in db");
+          res.send("email already registered");
+          return
         }
 
         // new user created

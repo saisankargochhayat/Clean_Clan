@@ -30,7 +30,7 @@ $(document).ready(function() {
                         $(n).siblings('.signmsg').addClass("alert alert-danger alert-dismissible");
                     }
 
-                    if (data == "You have already signed up. Please check your email to verify your account.") {
+                    if (data.msg == "You have already signed up. Please check your email to verify your account.") {
                         $(n).siblings('.signmsg').empty().append("<strong>You have already signed up. Please check your email to verify your account.</strong>");
                         $(n).siblings('.signmsg').addClass("alert alert-danger alert-dismissible");
                     }
@@ -47,7 +47,7 @@ $(document).ready(function() {
                 },
                 error: function(xhr, status, error) {
                     console.log(error);
-                    $(n).siblings('.signmsg').empty().append("<strong>" + error + "  error,<br> there might be insufficient Data</strong>");
+                    $(n).siblings('.signmsg').empty().append("<strong>" + error + " Error <br> there might be insufficient Data</strong>");
                     $(n).siblings('.signmsg').addClass("alert alert-danger alert-dismissible");
                 }
             });

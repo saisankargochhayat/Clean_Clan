@@ -264,6 +264,7 @@ module.exports = function(mongoose) {
 
             // user has already signed up and confirmed their account
             if (existingPersistentUser) {
+                    console.log("user already in db");
                 return callback(null, existingPersistentUser, null);
             }
 
