@@ -8,13 +8,14 @@ var nev =require('../app/emailverify')(mongoose);
 
 //email-verification
 //////////////////////////////////////////////////////////////////////////////
-mongoose.connect('mongodb://localhost/tcs');
+
 nev.configure({
   persistentUserModel: User,
   expirationTime: 600, // 10 minutes
 
   verificationURL: 'http://localhost:3000/signup/email-verification/${URL}',
   transportOptions: {
+           ////gmail id that i created to send verification mails don't misuse plzz
     service: 'Gmail',
     auth: {
       user: 'abhisinghs359@gmail.com',
@@ -22,8 +23,7 @@ nev.configure({
     }
   },
 
-  // hashingFunction: myHasher,
-  // passwordFieldName: 'pw',
+
 }, function(err, options) {
   if (err) {
     console.log(err);
@@ -41,31 +41,6 @@ nev.generateTempUserModel(User, function(err, tempUserModel) {
 
   console.log('generated temp user model: ' + (typeof tempUserModel === 'function'));
 });
-
-
-// Express stuff =========================
-// app.use(bodyParser.urlencoded());
-// app.get('/', function(req, res) {
-//   res.sendFile('index.html', {
-//     root: __dirname
-//   });
-// });
-//
-// app.post('/', function(req, res) {
-//   var email = req.body.email;
-//
-//   // register button was clicked
-//   if (req.body.type === 'register') {
-//     var pw = req.body.pw;
-//     var newUser = new User({
-//       email: email,
-//       pw: pw
-//     });
-
-
-
-
-
 
 ////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
@@ -154,9 +129,7 @@ router.post('/', upload.array('files', 12), function(req, res, next) {
 
         // user already exists in persistent collection
         if (existingPersistentUser) {
-          return res.json({
-            msg: 'You have already signed up and confirmed your account. Did you forget your password?'
-          });
+          res.send("email already registered")
         }
 
         // new user created
@@ -168,7 +141,7 @@ router.post('/', upload.array('files', 12), function(req, res, next) {
               return res.status(404).send('ERROR: sending verification email FAILED');
             }
             res.json({
-              msg: 'An email has been sent to you. Please check it to verify your account.',
+              msg: "An email has been sent to you. Please check it to verify your account.",
               info: info
             });
           });
@@ -176,32 +149,10 @@ router.post('/', upload.array('files', 12), function(req, res, next) {
         // user already exists in temporary collection!
         } else {
           res.json({
-            msg: 'You have already signed up. Please check your email to verify your account.'
+            msg: "You have already signed up. Please check your email to verify your account."
           });
         }
       });
-
-    // resend verification button was clicked
-    // }
-    // else {
-    //   nev.resendVerificationEmail(email, function(err, userFound) {
-    //     if (err) {
-    //       return res.status(404).send('ERROR: resending verification email FAILED');
-    //     }
-    //     if (userFound) {
-    //       res.json({
-    //         msg: 'An email has been sent to you, yet again. Please check it to verify your account.'
-    //       });
-    //     } else {
-    //       res.json({
-    //         msg: 'Your verification code has expired. Please sign up again.'
-    //       });
-    //     }
-    //   });
-    // }
- // });
-
-
     }
   }
 
