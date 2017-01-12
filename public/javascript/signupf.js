@@ -33,6 +33,10 @@ $(document).ready(function() {
                     if (data.msg == "You have already signed up. Please check your email to verify your account.") {
                         $(n).siblings('.signmsg').empty().append("<strong>You have already signed up. Please check your email to verify your account.</strong>");
                         $(n).siblings('.signmsg').addClass("alert alert-danger alert-dismissible");
+                        setTimeout(function() {
+                           s = document.URL;
+                           window.location.href = s.substr(0, s.lastIndexOf('/')) + '/signup';
+                       }, 2500);
                     }
 
 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Clean App India</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="/javascript/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/creative.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+    </div>
+  </nav>
+
+  <header>
+    <div class="header-content">
+      <div class="header-content-inner">
+        <h1 id="homeHeading" style="text-transform:captalized;">Your Mail ID was confirmed</h1>
+        <hr>
+        <!-- <p>Hope to see you soon again!</p> -->
+        <p id="logoutmsg"></p>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- jQuery -->
+  <script src="/javascript/vendor/jquery/jquery.min.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="/javascript/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script>
+$(document).ready(function() {
+  $('#logoutmsg').empty().append("<strong>You will be redirected to home page shortly</strong>");
+  $('#logoutmsg').addClass("alert alert-warning alert-dismissible");
+
+  setTimeout(function() {
+    s = document.URL;
+    window.location.href = s.substr(0, s.lastIndexOf('/signup/email-verification'));
+  }, 2500);
+
+});
+  </script>
+
+</body>
+
+</html>

@@ -170,10 +170,11 @@ router.get('/email-verification/:URL', function(req, res) {
         if (err) {
           return res.status(404).send('ERROR: sending confirmation email FAILED');
         }
-        res.json({
-          msg: 'CONFIRMED ho gaya!',
-          info: info
-        });
+        // res.json({
+        //   msg: 'CONFIRMED ho gaya!',
+        //   info: info
+        // });
+        res.sendFile(path.join(__dirname,'../confirm_mail.html'));
       });
 
 
