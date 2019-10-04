@@ -1,6 +1,6 @@
 ## Clean_Clan Web App
 
-* A web app that gamify the idea of “Swachh Bharat Abhiyaan” and  aims to bring a change in the way we conceive it.
+* A web app that gamifies the idea of “Swachh Bharat Abhiyaan” and aims to bring a change in the way we conceive it.
 * People lack motivation towards the idea of doing the work themselves even if they are facing problems because of dirty surroundings.
 * Adding gamification and competitiveness to this initiative can motivate more people to work and contribute to make a cleaner and safer India
 
