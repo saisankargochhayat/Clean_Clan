@@ -24,7 +24,7 @@
     "express-session": "^1.14.2",
     "formidable": "^1.0.17",
     "fs": "0.0.2",
-    "mongoose": "^4.6.8",
+    "mongoose": "^5.7.7",
     "multer": "^1.2.1",
     "nodemon": "^1.11.0",
     "pre": "^0.1.3",
